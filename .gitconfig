@@ -1,0 +1,88 @@
+[user]
+    name = Mac Heller-Ogden
+    email = mac@machellerogden.com
+[push]
+    default = simple
+[alias]
+    # abbreviations
+    st = status
+    ci = commit
+    co = checkout
+    br = branch 
+    # pretty log with graph output
+    lg = log --graph --pretty=format:'%C(yellow)%h%Cred -%C(auto)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --decorate --abbrev-commit --date=relative
+    # pretty log file details
+    ll = log --pretty=format:'%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]' --decorate --numstat
+    # pretty log with dates
+    ld = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=local
+    # pretty log with dates, first parent only
+    lf = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=local
+    # prettier blame
+    who = blame -c --show-stats --date=relative
+    # prettier and concise whatchanged
+    what = whatchanged --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=local --stat
+    # prettier whatchanged with full diffs
+    whatwhat = whatchanged --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=local -p
+    # prettier whatchanged with full diffs based on text search
+    whatwhen = whatchanged --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=local -p -S
+    # search the log for when given text was introduced
+    when = log -S
+    # list of files that have changed (with status)
+    changes = diff --name-status
+    # list of files that have changed
+    changed = diff --name-status
+    # list of changes since current branch diverge from master branch
+    mdiff = diff master...HEAD
+    # list of files that have changed (with status) since current branch diverge from master branch
+    mchanges = diff --name-status master...HEAD
+    # list of files that have changed since current branch diverge from master branch
+    mchanged = diff --name-only master...HEAD
+    # diff between two branchs
+    bdiff = "!f() { git diff $1...HEAD; }; f"
+    # list of files that have changed (with status) between two branches
+    bchanges = "!f() { git diff --name-status $1...HEAD; }; f"
+    # list of files that have changed between two branches
+    bchanged = "!f() { git diff --name-only $1...HEAD; }; f"
+    # diff between local and branch of same name on origin
+    odiff = "!f() { branch_name=$(git symbolic-ref -q HEAD); branch_name=${branch_name##refs/heads/}; branch_name=${branch_name:-HEAD}; git diff origin/$branch_name; }; f"
+    # list of file that have changed between local and branch of same name on origin (with status)
+    ochanges = "!f() { branch_name=$(git symbolic-ref -q HEAD); branch_name=${branch_name##refs/heads/}; branch_name=${branch_name:-HEAD}; git diff --name-status origin/$branch_name; }; f"
+    # list of file that have changed between local and branch of same name on origin
+    ochanged = "!f() { branch_name=$(git symbolic-ref -q HEAD); branch_name=${branch_name##refs/heads/}; branch_name=${branch_name:-HEAD}; git diff --name-only origin/$branch_name; }; f"
+    # word diff
+    wdiff = diff --word-diff=color
+    # find files
+    f = "!git ls-files | grep -i"
+    # find files containing text
+    g = grep -Ii
+    # find out which branch contains a change
+    contains = branch --contains
+    # run on your topic branch ... checks to make sure your branch doesn't have workareas merged in and isn't based off of a workarea
+    qa-in-history = "!f() { BADMERGES=$(git log --merges --pretty='%h %s' | grep -v 'e22d64d\\|1272b9c\\|d33ff88' | grep \"Merge branch 'qa-dq0\"); if [ \"$BADMERGES\" != \"\" ] || [ $(git merge-base --is-ancestor qa-dq01 HEAD) ] || [ $(git merge-base --is-ancestor qa-dq02 HEAD) ]; then echo \"Found QA branch(es) in history! DO NOT TAKE THIS BRANCH TO PRODUCTION!\"; else echo \"No QA branches in history. Lookin' good chief!\"; fi }; f"
+    # pretty print all commits which were introduced by a given merge. NOTE: requires merge commit as an argument!
+    introduced = "!f() { git log $(git merge-base --octopus $(git show $1 --format='%P'))..$(git show $1 --format='%H') --boundary --graph --pretty=oneline --abbrev-commit; }; f"
+    # used after a revert to show commands you'll need to run in order to reintroduce commits previously introduced by a given merge commit. NOTE: requires merge commit as an argument!
+    reintroduce = "!f() { git log $(git merge-base --octopus $(git show $1 --format='%P'))..$(git show $1 --format='%H') --format='git cherry-pick %H' --no-merges --reverse; }; f"
+    # list branchs that exist on local only
+    localonly = "!f() { LOCALS=$(git branch --list --no-color | cut -c 3-);REMOTES=$(git branch --all --no-color | grep 'remotes/origin' | grep -v HEAD | awk -F'/' '{print $3}');for R in $REMOTES; do LOCALS=$(echo \"$LOCALS\" | grep -v $R); done; echo \"$LOCALS\"; }; f"
+    # leaderboard
+    leaderboard = shortlog -s -n
+    # hard reset
+    hard = reset --hard
+[color]
+    ui = auto
+    status = auto
+    branch = auto
+    diff = auto
+    interactive = auto
+[core]
+    editor = "mvim -f"
+    autocrlf = false
+    fileMode = false
+[rerere]
+    enabled = true
+    #autoupdate = true
+[custom]
+    team = nav-profiles
+[credential]
+	helper = osxkeychain
