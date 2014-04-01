@@ -6,8 +6,8 @@
 [alias]
     # abbreviations
     st = status
-    ci = commit
-    co = checkout
+    co = commit
+    ch = checkout
     br = branch 
     # pretty log with graph output
     lg = log --graph --pretty=format:'%C(yellow)%h%Cred -%C(auto)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --decorate --abbrev-commit --date=relative
