@@ -62,8 +62,15 @@ alias FUCK='fuck'
 # directories, branches, apps
 alias dotfiles='cd ~/.dotfiles'
 alias repos='cd ~/Repos'
+alias www='cd ~/Repos/www'
+alias mdot='cd ~/Repos/mobiWebStatic/WebContent'
+alias master='cd ~/Repos/www;git stash;git checkout master'
+alias dq01='cd ~/Repos/www;git stash;git checkout qa-dq01'
+alias dq02='cd ~/Repos/www;git stash;git checkout qa-dq02'
 alias sandbox='cd ~/Repos/sandbox'
 alias runsandbox='cd ~/Repos/sandbox;./debug'
+alias userprofile='cd ~/Repos/user-profile'
+alias runuserprofile='cd ~/Repos/user-profile;./macProfile.sh'
 
 # git aliases
 alias g='git'
