@@ -53,8 +53,8 @@ alias runsandbox='cd ~/Repos/sandbox;./debug'
 
 # git aliases
 alias g='git'
-alias gch='git checkout'
-alias gco='git commit'
+alias gco='git checkout'
+alias gci='git commit'
 alias gca='git commit -a'
 alias gdi='git diff'
 
