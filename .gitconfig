@@ -6,9 +6,9 @@
 [alias]
     # abbreviations
     st = status
-    co = commit
-    ch = checkout
-    br = branch 
+    co = checkout
+    ci = commit
+    br = branch
     # pretty log with graph output
     lg = log --graph --pretty=format:'%C(yellow)%h%Cred -%C(auto)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --decorate --abbrev-commit --date=relative
     # pretty log file details
@@ -69,6 +69,10 @@
     leaderboard = shortlog -s -n
     # hard reset
     hard = reset --hard
+    # head commit
+    head = rev-parse HEAD
+    # head commit
+    shorthead = rev-parse --short HEAD
 [color]
     ui = auto
     status = auto
