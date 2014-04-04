@@ -57,6 +57,9 @@ alias gch='git checkout'
 alias gco='git commit'
 alias gca='git commit -a'
 alias gdi='git diff'
+alias gst='git status'
+alias gpull='git pull'
+alias gpush='git push'
 
 # github cli
 eval "$(gh alias -s)"
