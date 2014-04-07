@@ -7,9 +7,9 @@ export PATH="$JAVA_HOME/bin:/Users/macheller-ogden/Tools:/Users/macheller-ogden/
 # vim
 set -o vi
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+    export EDITOR='vim'
 else
-  export EDITOR='mvim'
+    export EDITOR='mvim'
 fi
 
 # git
@@ -53,21 +53,36 @@ alias runsandbox='cd ~/Repos/sandbox;./debug'
 
 # git aliases
 alias g='git'
-alias gch='git-checkout'
-alias gco='git-commit'
-alias gdi='git-diff'
-alias gst='git-status'
-alias glg='git-lg'
-alias glf='git-lf'
-alias gld='git-ld'
-alias gbr='git-branch'
-alias gpull='git-pull'
-alias gpush='git-push'
+alias gch='git checkout'
+alias gco='git commit'
+alias gadd='git add'
+alias grm='git rm'
+alias gmv='git mv'
+alias gdi='git diff'
+alias gst='git status'
+alias glg='git lg'
+alias glf='git lf'
+alias gld='git ld'
+alias gbr='git branch'
+alias gpull='git pull'
+alias gpush='git push'
 
 # github cli
 eval "$(gh alias -s)"
 
 # bash completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+    . $(brew --prefix)/etc/bash_completion
+    # git completion for aliases
+    __git_complete g _git
+    __git_complete gch _git_checkout
+    __git_complete gco _git_commit
+    __git_complete gadd _git_add
+    __git_complete grm _git_rm
+    __git_complete gmv _git_mv
+    __git_complete gdi _git_diff
+    __git_complete gst _git_status
+    __git_complete gbr _git_branch
+    __git_complete gpull _git_pull
+    __git_complete gpush _git_push
 fi
