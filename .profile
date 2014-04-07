@@ -53,24 +53,16 @@ alias runsandbox='cd ~/Repos/sandbox;./debug'
 
 # git aliases
 alias g='git'
-__git_complete g _git
 alias gch='git-checkout'
-__git_complete gch _git_checkout
 alias gco='git-commit'
-__git_complete gco _git_commit
 alias gdi='git-diff'
-__git_complete gdi _git_diff
 alias gst='git-status'
-__git_complete gst _git_status
 alias glg='git-lg'
 alias glf='git-lf'
 alias gld='git-ld'
 alias gbr='git-branch'
-__git_complete gbr _git_branch
 alias gpull='git-pull'
-__git_complete gpull _git_pull
 alias gpush='git-push'
-__git_complete gpush _git_push
 
 # github cli
 eval "$(gh alias -s)"
