@@ -15,5 +15,5 @@ do
     if [ -f $HOME/$i ] || [ -d $HOME/$i ] && [ ! -h $HOME/$i ]; then
         mv -f $HOME/$i $HOME/$i-bkup
     fi
-        ln -sf $PWD/$i $HOME/$i
+    ln -sf $PWD/$i $HOME/$i
 done
