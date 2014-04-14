@@ -176,8 +176,9 @@ command! -range=% -nargs=0 Tab2Space execute '<line1>,<line2>s#^\t\+#\=repeat(" 
 " spaces to tabs
 command! -range=% -nargs=0 Space2Tab execute '<line1>,<line2>s#^\( \{'.&ts.'\}\)\+#\=repeat("\t", len(submatch(0))/' . &ts . ')'
 
-" use html syntax on ejs files
+" use html syntax on ejs and mustache files
 au BufNewFile,BufRead *.ejs set filetype=html
+au BufNewFile,BufRead *.mustache set filetype=html
 
 " json formatting via json.vim
 au! BufRead,BufNewFile *.json set filetype=json
@@ -222,14 +223,14 @@ let NERDTreeShowBookmarks=1
 nnoremap <silent> <F6> :GundoToggle<CR>
 
 " source closetag script
-au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
+au Filetype html,xml,xsl,ejs,mustache source ~/.vim/scripts/closetag.vim
 
 " lint on save
 let jshint2_save = 1
 
 " enable emmet just for html/css
 let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
+autocmd FileType html,ejs,mustache,css EmmetInstall
 
 " emmet trigger key to ctrl-z
 " let g:user_emmet_leader_key='<C-Z>'

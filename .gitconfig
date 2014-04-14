@@ -80,7 +80,7 @@
     diff = auto
     interactive = auto
 [core]
-    editor = "mvim -f"
+    editor = "vim -f"
     autocrlf = false
     fileMode = false
 [rerere]

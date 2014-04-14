@@ -55,7 +55,7 @@ alias runsandbox='cd ~/Repos/sandbox;./debug'
 alias g='git'
 alias gch='git checkout'
 alias gco='git commit'
-alias gadd='git add'
+alias gad='git add'
 alias grm='git rm'
 alias gmv='git mv'
 alias gdi='git diff'
@@ -77,7 +77,7 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
     __git_complete g _git
     __git_complete gch _git_checkout
     __git_complete gco _git_commit
-    __git_complete gadd _git_add
+    __git_complete gad _git_add
     __git_complete grm _git_rm
     __git_complete gmv _git_mv
     __git_complete gdi _git_diff
