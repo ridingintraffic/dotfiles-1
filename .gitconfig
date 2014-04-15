@@ -73,6 +73,12 @@
     head = rev-parse HEAD
     # head commit
     shorthead = rev-parse --short HEAD
+    # cherry pick
+    pick = cherry-pick -x
+    # stash
+    save = stash -u
+    # stash pop
+    pop = stash pop
 [color]
     ui = auto
     status = auto
