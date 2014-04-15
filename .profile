@@ -88,6 +88,3 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
     __git_complete gpull _git_pull
     __git_complete gpush _git_push
 fi
-
-# git flow completion
-source ~/git-flow-completion.bash
