@@ -58,14 +58,15 @@ alias gco='git commit'
 alias gad='git add'
 alias grm='git rm'
 alias gmv='git mv'
+alias gbr='git branch'
+alias gmerge='git merge'
+alias gpull='git pull'
+alias gpush='git push'
 alias gdi='git diff'
 alias gst='git status'
 alias glg='git lg'
 alias glf='git lf'
 alias gld='git ld'
-alias gbr='git branch'
-alias gpull='git pull'
-alias gpush='git push'
 
 # github cli
 eval "$(gh alias -s)"
@@ -83,6 +84,7 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
     __git_complete gdi _git_diff
     __git_complete gst _git_status
     __git_complete gbr _git_branch
+    __git_complete gmerge _git_merge
     __git_complete gpull _git_pull
     __git_complete gpush _git_push
 fi
