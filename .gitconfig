@@ -79,6 +79,8 @@
     save = stash -u
     # stash pop
     pop = stash pop
+    # copy HEAD commit hash
+    copy = !git rev-parse --short HEAD | tr -d '\n' | pbcopy
 [color]
     ui = auto
     status = auto
