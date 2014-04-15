@@ -79,8 +79,8 @@
     save = stash -u
     # stash pop
     pop = stash pop
-    # copy HEAD commit hash
-    copy = !git rev-parse --short HEAD | tr -d '\n' | pbcopy
+    # copy given commit hash
+    copy = "!f() { REF=${1:-HEAD}; git rev-parse --short $REF | tr -d '\n' | pbcopy; }; f"
 [color]
     ui = auto
     status = auto
