@@ -69,8 +69,10 @@
     leaderboard = shortlog -s -n
     # hard reset
     hard = reset --hard
-    # hard reset
+    # hard reset to HEAD
     hardhead = reset --hard HEAD
+    # hard reset to HEAD^
+    hardlast = reset --hard HEAD^
     # head commit
     head = rev-parse HEAD
     # head commit
