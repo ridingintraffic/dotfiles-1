@@ -47,6 +47,7 @@ alias h=GrepHistory
 alias hl=GrepHistory
 
 # directories, branches, apps
+alias dotfiles='cd ~/.dotfiles'
 alias repos='cd ~/Repos'
 alias sandbox='cd ~/Repos/sandbox'
 alias runsandbox='cd ~/Repos/sandbox;./debug'
@@ -55,14 +56,14 @@ alias runsandbox='cd ~/Repos/sandbox;./debug'
 alias g='git'
 alias gch='git checkout'
 alias gco='git commit'
-alias gad='git add'
+alias gadd='git add'
 alias grm='git rm'
 alias gmv='git mv'
 alias gbr='git branch'
 alias gmerge='git merge'
 alias gpull='git pull'
 alias gpush='git push'
-alias gdi='git diff'
+alias gdiff='git diff'
 alias gst='git status'
 alias glg='git lg'
 alias glf='git lf'
@@ -78,7 +79,7 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
     __git_complete g _git
     __git_complete gch _git_checkout
     __git_complete gco _git_commit
-    __git_complete gad _git_add
+    __git_complete gadd _git_add
     __git_complete grm _git_rm
     __git_complete gmv _git_mv
     __git_complete gdi _git_diff
@@ -87,4 +88,9 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
     __git_complete gmerge _git_merge
     __git_complete gpull _git_pull
     __git_complete gpush _git_push
+    __git_complete gdiff _git_diff
+    __git_complete gst _git_status
+    __git_complete glg _git_log
+    __git_complete glf _git_log
+    __git_complete gld _git_log
 fi
