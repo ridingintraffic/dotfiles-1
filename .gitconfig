@@ -85,6 +85,12 @@
     pop = stash pop
     # copy given commit hash
     copy = "!f() { REF=${1:-HEAD}; git rev-parse --short $REF | tr -d '\n' | pbcopy; }; f"
+    # fixup commit
+    fixup = !sh -c 'git commit -m \"fixup! $(git log -1 --format='\\''%s'\\'' $@)\"' -
+    # squash commit
+    squash = !sh -c 'git commit -m \"squash! $(git log -1 --format='\\''%s'\\'' $@)\"' -
+    # interactive rebase
+    ri = rebase --interactive --autosquash
 [color]
     ui = auto
     status = auto
