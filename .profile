@@ -61,6 +61,7 @@ alias grm='git rm'
 alias gmv='git mv'
 alias gbr='git branch'
 alias gmerge='git merge'
+alias gri='git rebase --interactive'
 alias gpull='git pull'
 alias gpush='git push'
 alias gdiff='git diff'
@@ -86,6 +87,7 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
     __git_complete gst _git_status
     __git_complete gbr _git_branch
     __git_complete gmerge _git_merge
+    __git_complete gri _git_rebase
     __git_complete gpull _git_pull
     __git_complete gpush _git_push
     __git_complete gdiff _git_diff
