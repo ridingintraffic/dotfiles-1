@@ -95,6 +95,8 @@
     squash = !sh -c 'git commit -m \"squash! $(git log -1 --format='\\''%s'\\'' $@)\"' -
     # interactive rebase
     ri = rebase --interactive --autosquash
+    # svn update commit
+    svnupdate = "!f() { svn update; git add -A; git commit -m 'svn update'; }; f"
 [color]
     ui = auto
     status = auto
