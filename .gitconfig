@@ -92,7 +92,7 @@
     # interactive rebase
     ri = rebase --interactive --autosquash
     # pull request review
-    review = "!f() { git stash -u; git fetch; git checkout -t $1; git diff -w master...HEAD; git checkout -; git stash pop; }; f"
+    review = "!f() { git stash -u; git fetch; git checkout -t origin/$1; git diff -w master...HEAD; git checkout -; git stash pop; }; f"
 [color]
     ui = auto
     status = auto
