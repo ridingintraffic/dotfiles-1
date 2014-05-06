@@ -31,8 +31,14 @@
     changes = diff --name-status
     # list of files that have changed
     changed = diff --name-status
+    # diff - ignore whitespace
+    wdiff = diff -w
+    # real diff shows the changes that matter
+    realdiff = diff -w -b --word-diff=color
     # list of changes since current branch diverge from master branch
     mdiff = diff master...HEAD
+    # list of changes since current branch diverge from master branch - ignore whitespace
+    mwdiff = diff -w master...HEAD
     # list of files that have changed (with status) since current branch diverge from master branch
     mchanges = diff --name-status master...HEAD
     # list of files that have changed since current branch diverge from master branch
@@ -49,8 +55,6 @@
     ochanges = "!f() { branch_name=$(git symbolic-ref -q HEAD); branch_name=${branch_name##refs/heads/}; branch_name=${branch_name:-HEAD}; git diff --name-status origin/$branch_name; }; f"
     # list of file that have changed between local and branch of same name on origin
     ochanged = "!f() { branch_name=$(git symbolic-ref -q HEAD); branch_name=${branch_name##refs/heads/}; branch_name=${branch_name:-HEAD}; git diff --name-only origin/$branch_name; }; f"
-    # word diff
-    wdiff = diff --word-diff=color
     # find files
     f = "!git ls-files | grep -i"
     # find files containing text
@@ -91,8 +95,6 @@
     squash = !sh -c 'git commit -m \"squash! $(git log -1 --format='\\''%s'\\'' $@)\"' -
     # interactive rebase
     ri = rebase --interactive --autosquash
-    # pull request review
-    review = "!f() { git stash -u; git fetch; git checkout -t origin/$1; git diff -w master...HEAD; git checkout -; git stash pop; }; f"
 [color]
     ui = auto
     status = auto
