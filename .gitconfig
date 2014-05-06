@@ -91,6 +91,8 @@
     squash = !sh -c 'git commit -m \"squash! $(git log -1 --format='\\''%s'\\'' $@)\"' -
     # interactive rebase
     ri = rebase --interactive --autosquash
+    # pull request review
+    review = "!f() { git stash -u; git fetch; git checkout -t $1; git diff -w master...HEAD; git checkout -; git stash pop; }; f"
 [color]
     ui = auto
     status = auto
