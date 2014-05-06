@@ -5,7 +5,7 @@
     default = simple
 [alias]
     # abbreviations
-    st = status
+    st = status -s
     ch = checkout
     co = commit
     br = branch
