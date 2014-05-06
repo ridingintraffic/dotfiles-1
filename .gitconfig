@@ -33,8 +33,8 @@
     changed = diff --name-status
     # diff - ignore whitespace
     wdiff = diff -w
-    # real diff shows the changes that matter
-    realdiff = diff -w -b --word-diff=color
+    # smart diff shows the changes that matter on a very granular level
+    smartdiff = diff -w -b --word-diff=color
     # list of changes since current branch diverge from master branch
     mdiff = diff master...HEAD
     # list of changes since current branch diverge from master branch - ignore whitespace
