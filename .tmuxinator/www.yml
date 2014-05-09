@@ -1,0 +1,33 @@
+# ~/.tmuxinator/www.yml
+
+name: www
+root: ~/Repos/www/
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+windows:
+  - shell:
+      layout: even-horizontal
+      panes:
+        - mkdir -v /Volumes/iwserver;mount -vt smbfs //mhellero@cjprtsl01/iwserver /Volumes/iwserver;clear;buildInfo
+  - editor:
+      layout: 64e6,158x42,0,0[158x31,0,0,0,158x10,0,32{79x10,0,32,5,78x10,80,32,6}]
+      panes:
+        - vim
+        - git status
+        - grunt build-dist;grunt watch
+#  - server: bundle exec rails s
+#  - logs: tail -f log/development.log
