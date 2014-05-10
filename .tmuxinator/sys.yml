@@ -1,0 +1,15 @@
+# ~/.tmuxinator/sys.yml
+
+name: sys
+root: ~/
+
+windows:
+  - dash:
+      layout: even-vertical
+      panes:
+        - htop
+        - sudo tcpdump -i en0 -n -s 0 -w - | grep -a -o -E "Host\: .*|GET \/.*"
+  - shell:
+      layout: even-horizontal
+      panes:
+        - #empty
