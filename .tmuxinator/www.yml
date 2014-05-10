@@ -22,7 +22,7 @@ windows:
   - shell:
       layout: even-horizontal
       panes:
-        - mkdir -v /Volumes/iwserver;mount -vt smbfs //mhellero@cjprtsl01/iwserver /Volumes/iwserver;clear;buildInfo
+        - mount-teamsite;clear;buildInfo
   - editor:
       layout: c789,178x46,0,0[178x38,0,0,1,178x7,0,39{89x7,0,39,2,88x7,90,39,3}]
       panes:
