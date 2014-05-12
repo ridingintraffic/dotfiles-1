@@ -3,31 +3,23 @@
 name: www
 root: ~/Repos/www/
 
-# Optional tmux socket
-# socket_name: foo
-
-# Runs before everything. Use it to start daemons etc.
-# pre: sudo /etc/rc.d/mysqld start
-
-# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-# pre_window: rbenv shell 2.0.0-p247
-
-# Pass command line options to tmux. Useful for specifying a different tmux.conf.
-# tmux_options: -f ~/.tmux.mac.conf
-
-# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
-# tmux_command: byobu
-
 windows:
   - shell:
       layout: even-horizontal
       panes:
-        - mount-teamsite;clear;buildInfo
+        - mount-teamsite;buildInfo
   - editor:
       layout: c789,178x46,0,0[178x38,0,0,1,178x7,0,39{89x7,0,39,2,88x7,90,39,3}]
       panes:
         - vim
         - git status
         - grunt build-dist;grunt watch
-#  - server: bundle exec rails s
-#  - logs: tail -f log/development.log
+  - tig:
+      layout: even-horizontal
+      panes:
+        - tig
+  - apps:
+      layout: even-horizontal
+      panes:
+        - userprofile;./macProfile.sh
+        - #empty
