@@ -1,0 +1,12 @@
+# ~/.tmuxinator/mdot.yml
+
+name: mdot
+root: ~/Repos/mobile/profile_nav/mobiWebStatic/WebContent/
+
+windows:
+  - shell: clear
+  - editor:
+      layout: 6f79,178x44,0,0[178x37,0,0,1,178x6,0,38,2]
+      panes:
+        - vim
+        - clear
