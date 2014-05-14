@@ -155,6 +155,7 @@ set pastetoggle=<F1>
 set showmode
 
 " copy paste from system clipboard
+"set clipboard^=unnamed
 vmap <a-c> "*y
 vmap <a-x> "*d
 nmap <a-v> :set paste<CR>"*p:set nopaste<CR>
