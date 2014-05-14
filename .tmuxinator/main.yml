@@ -1,0 +1,7 @@
+# ~/.tmuxinator/main.yml
+
+name: main
+root: ~/
+
+windows:
+  - main: clear
