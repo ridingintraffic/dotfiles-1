@@ -4,22 +4,16 @@ name: www
 root: ~/Repos/www/
 
 windows:
-  - shell:
-      layout: even-horizontal
-      panes:
-        - mount-teamsite;buildInfo
+  - shell: mount-teamsite;buildInfo
   - editor:
       layout: c789,178x46,0,0[178x38,0,0,1,178x7,0,39{89x7,0,39,2,88x7,90,39,3}]
       panes:
         - vim
         - git status
         - grunt build-dist;grunt watch
-  - tig:
-      layout: even-horizontal
-      panes:
-        - tig
+  - tig: tig
   - apps:
       layout: even-horizontal
       panes:
         - userprofile;./macProfile.sh
-        - #empty
+        - clear
