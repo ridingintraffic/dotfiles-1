@@ -6,7 +6,8 @@ root: ~/Repos/mobile/profile_nav/mobiWebStatic/WebContent/
 windows:
   - shell: clear
   - editor:
-      layout: 6f79,178x44,0,0[178x37,0,0,1,178x6,0,38,2]
+      layout: c789,178x46,0,0[178x38,0,0,1,178x7,0,39{89x7,0,39,2,88x7,90,39,3}]
       panes:
         - vim
         - clear
+        - karma start
