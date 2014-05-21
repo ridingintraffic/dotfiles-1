@@ -34,7 +34,7 @@
     # diff - ignore whitespace
     wdiff = diff -w
     # smart diff shows the changes that matter on a very granular level
-    smartdiff = diff -w -b --histogram
+    smartdiff = diff -w -b --patience
     # list of changes since current branch diverge from master branch
     mdiff = diff master...HEAD
     # list of changes since current branch diverge from master branch - ignore whitespace
