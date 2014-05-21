@@ -34,7 +34,7 @@
     # diff - ignore whitespace
     wdiff = diff -w
     # smart diff shows the changes that matter on a very granular level
-    smartdiff = diff -w -b --word-diff=color
+    smartdiff = diff -w -b --histogram
     # list of changes since current branch diverge from master branch
     mdiff = diff master...HEAD
     # list of changes since current branch diverge from master branch - ignore whitespace
@@ -97,6 +97,8 @@
     ri = rebase --interactive --autosquash
     # svn update commit
     svnupdate = "!f() { svn update; git add -A; git commit -m 'svn update'; }; f"
+    # unapply stash
+    stash-unapply = !git stash show -p --no-color | git apply -R
 [color]
     ui = auto
     status = auto
