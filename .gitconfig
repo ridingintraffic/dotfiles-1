@@ -63,8 +63,6 @@
     g = grep -Ii
     # find out which branch contains a change
     contains = branch --contains
-    # run on your topic branch ... checks to make sure your branch doesn't have workareas merged in and isn't based off of a workarea
-    qa-in-history = "!f() { BADMERGES=$(git log --merges --pretty='%h %s' | grep -v 'e22d64d\\|1272b9c\\|d33ff88' | grep \"Merge branch 'qa-dq0\"); if [ \"$BADMERGES\" != \"\" ] || [ $(git merge-base --is-ancestor qa-dq01 HEAD) ] || [ $(git merge-base --is-ancestor qa-dq02 HEAD) ]; then echo \"Found QA branch(es) in history! DO NOT TAKE THIS BRANCH TO PRODUCTION!\"; else echo \"No QA branches in history. Lookin' good chief!\"; fi }; f"
     # pretty print all commits which were introduced by a given merge. NOTE: requires merge commit as an argument!
     introduced = "!f() { git log $(git merge-base --octopus $(git show $1 --format='%P'))..$(git show $1 --format='%H') --boundary --graph --pretty=oneline --abbrev-commit; }; f"
     # used after a revert to show commands you'll need to run in order to reintroduce commits previously introduced by a given merge commit. NOTE: requires merge commit as an argument!
