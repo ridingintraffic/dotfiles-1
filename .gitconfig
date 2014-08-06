@@ -77,8 +77,10 @@
     hard = reset --hard
     # hard reset to HEAD
     hardhead = reset --hard HEAD
-    # hard reset to HEAD^
-    hardlast = reset --hard HEAD^
+    # hard reset to first parent
+    hardfp = reset --hard @^
+    # hard reset to previous HEAD ref
+    hardprev = reset --hard @{1}
     # head commit
     head = rev-parse HEAD
     # head commit
