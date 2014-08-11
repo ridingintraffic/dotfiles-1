@@ -38,13 +38,13 @@
     # smart diff shows the changes that matter on a very granular level
     smartdiff = diff -w -b --patience
     # list of changes since current branch diverge from master branch
-    mdiff = diff master...HEAD
+    mdiff = "!f() { git fetch; git diff origin/master...HEAD; }; f"
     # list of changes since current branch diverge from master branch - ignore whitespace
-    mwdiff = diff -w master...HEAD
+    mwdiff = "!f() { git fetch; git diff -w origin/master...HEAD; }; f"
     # list of files that have changed (with status) since current branch diverge from master branch
-    mchanges = diff --name-status master...HEAD
+    mchanges = "!f() { git fetch; git diff --name-status origin/master...HEAD; }; f"
     # list of files that have changed since current branch diverge from master branch
-    mchanged = diff --name-only master...HEAD
+    mchanged = "!f() { git fetch; git diff --name-only origin/master...HEAD; }; f"
     # diff between two branchs
     bdiff = "!f() { git diff $1...HEAD; }; f"
     # list of files that have changed (with status) between two branches
