@@ -13,5 +13,5 @@ windows:
   - apps:
       layout: even-horizontal
       panes:
-        - userprofile;./macProfile.sh
+        - userprofile
         - clear
