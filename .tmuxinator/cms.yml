@@ -1,0 +1,13 @@
+# ~/.tmuxinator/cms.yml
+
+name: cms
+root: ~/Repos/www-cars-com/
+
+windows:
+  - backend: clear
+  - frontend: cd ~/Repos/www-cars-com-static-sandbox;clear
+  - editor:
+      layout: 4285,178x46,0,0[178x34,0,0,1,178x11,0,35,2]
+      panes:
+        - vim
+        - git status
