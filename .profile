@@ -30,8 +30,8 @@ function ListToLess() {
 function ListDetailToLess() {
     ls -al "$@" | less;
 }
-function ListRecursivelyToLess() {
-    ls -R "$@" | less;
+function ListRecursively() {
+    ls -R "$@";
 }
 function GrepHistory() {
     history | grep "$@";
@@ -45,7 +45,7 @@ alias pa=FindProcess
 alias kp=KillProcess
 alias la=ListToLess
 alias ll=ListDetailToLess
-alias lr=ListRecursivelyToLess
+alias lr=ListRecursively
 alias h=GrepHistory
 alias hl=GrepHistory
 
