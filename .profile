@@ -30,7 +30,7 @@ function ListToLess() {
 function ListDetailToLess() {
     ls -al "$@" | less;
 }
-function ListDetailToLess() {
+function ListRecursivelyToLess() {
     lr "$@" | less;
 }
 function GrepHistory() {
