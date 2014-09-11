@@ -31,7 +31,7 @@ function ListDetailToLess() {
     ls -al "$@" | less;
 }
 function ListRecursivelyToLess() {
-    lr "$@" | less;
+    ls -R "$@" | less;
 }
 function GrepHistory() {
     history | grep "$@";
