@@ -232,6 +232,7 @@ au Filetype html,xml,xsl,ejs,mustache source ~/.vim/scripts/closetag.vim
 
 " eslint
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_html_checkers = []
 " let g:syntastic_javascript_args = "--my --args --here"
 " lint on save
 " let jshint2_save = 1
