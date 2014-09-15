@@ -14,6 +14,10 @@ set background=dark
 " no swap files
 set noswapfile
 
+" don't write to a backup file then delete the original and then rename the
+" backup to the name of the original file... it's annoying
+set nowritebackup
+
 " jelly beans
 " colorscheme jellybeans
 
@@ -226,8 +230,11 @@ nnoremap <silent> <F6> :GundoToggle<CR>
 " source closetag script
 au Filetype html,xml,xsl,ejs,mustache source ~/.vim/scripts/closetag.vim
 
+" eslint
+let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_javascript_args = "--my --args --here"
 " lint on save
-let jshint2_save = 1
+" let jshint2_save = 1
 
 " enable emmet just for html/css
 let g:user_emmet_install_global = 0

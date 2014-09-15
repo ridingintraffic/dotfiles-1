@@ -13,9 +13,6 @@
 [submodule ".vim/bundle/gundo.vim"]
 	path = .vim/bundle/gundo.vim
 	url = git@github.com:sjl/gundo.vim.git
-[submodule ".vim/bundle/jshint2.vim"]
-	path = .vim/bundle/jshint2.vim
-	url = git@github.com:Shutnik/jshint2.vim.git
 [submodule ".vim/bundle/nerdtree"]
 	path = .vim/bundle/nerdtree
 	url = git@github.com:scrooloose/nerdtree.git
