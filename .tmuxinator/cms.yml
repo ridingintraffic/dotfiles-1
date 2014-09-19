@@ -8,5 +8,5 @@ windows:
   - frontend:
       layout: 4285,178x46,0,0[178x34,0,0,1,178x11,0,35,2]
       panes:
-        - cd ~/Repos/www-cars-com-static-sandbox;vim
-        - cd ~/Repos/www-cars-com-static-sandbox;git status
+        - cd ~/Repos/www-cars-com-static;vim
+        - cd ~/Repos/www-cars-com-static;git status
