@@ -1,7 +1,7 @@
 # ~/.tmuxinator/mdot.yml
 
 name: mdot
-root: ~/Repos/mobile/profile_nav/mobiWebStatic/WebContent/
+root: ~/Repos/m-cars-com-content
 
 windows:
   - shell: clear
