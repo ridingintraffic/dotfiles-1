@@ -58,7 +58,9 @@
     # list of file that have changed between local and branch of same name on origin
     ochanged = "!f() { branch_name=$(git symbolic-ref -q HEAD); branch_name=${branch_name##refs/heads/}; branch_name=${branch_name:-HEAD}; git diff --name-only origin/$branch_name; }; f"
     # get diff between HEAD and origin/HEAD
-    difforigin = diff HEAD...origin/HEAD
+    origindiff = diff HEAD...origin/HEAD
+    # get diff between HEAD and origin/HEAD
+    originchanges = diff --name-status HEAD...origin/HEAD
     # find files
     f = "!git ls-files | grep -i"
     # find files containing text
