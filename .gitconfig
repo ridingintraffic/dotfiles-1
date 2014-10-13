@@ -109,6 +109,8 @@
     stash-unapply = !git stash show -p --no-color | git apply -R
     # reset to guarenteed state
     goto = "!f() { git fetch; git reset --hard $1; git clean -d -f; }; f"
+    # pull rebase
+    pullr = pull --rebase
 [color]
     ui = auto
     status = auto
