@@ -48,6 +48,7 @@ alias ll=ListDetailToLess
 alias lr=ListRecursively
 alias h=GrepHistory
 alias hl=GrepHistory
+alias cl='clear'
 
 # directories, branches, apps
 alias dotfiles='cd ~/.dotfiles'
