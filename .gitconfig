@@ -82,9 +82,7 @@
     # hard reset to HEAD
     hardhead = reset --hard HEAD
     # hard reset to first parent
-    hardfp = reset --hard @^
-    # hard reset to previous HEAD ref
-    hardprev = reset --hard @{1}
+    undo = reset --hard @^
     # head commit
     head = rev-parse HEAD
     # head commit
@@ -122,7 +120,7 @@
     autocrlf = false
     fileMode = false
 [rerere]
-    enabled = true
+    #enabled = true
     #autoupdate = true
 [custom]
     team = nav-profiles
