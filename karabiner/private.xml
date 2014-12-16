@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<root>
+    <appdef>
+        <appname>CHROME</appname>
+        <equal>com.google.Chrome</equal>
+    </appdef>
+    <appdef>
+        <appname>ECLIPSE</appname>
+        <equal>org.eclipse.platform.ide</equal>
+    </appdef>
+    <appdef>
+        <appname>ALFRED</appname>
+        <equal>com.runningwithcrayons.Alfred-2</equal>
+    </appdef>
+    <replacementdef>
+        <replacementname>VIM_EMU_IGNORE_APPS</replacementname>
+        <replacementvalue>TERMINAL, VI, ECLIPSE, CHROME, ALFRED</replacementvalue>
+    </replacementdef>
+</root>
