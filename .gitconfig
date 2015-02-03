@@ -126,3 +126,5 @@
     team = nav-profiles
 [credential]
 	helper = osxkeychain
+[branch]
+	autosetuprebase = always

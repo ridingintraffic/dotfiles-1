@@ -222,7 +222,7 @@ let g:yankring_zap_keys = 'f F t T / ?'
 
 " NERDtree - http://vim.sourceforge.net/scripts/script.php?script_id=1658
 nnoremap <silent> <F5> :NERDTreeToggle<CR>
-let NERDTreeShowBookmarks=1
+" let NERDTreeShowBookmarks=1
 
 " gundo - http://sjl.bitbucket.org/gundo.vim/
 nnoremap <silent> <F6> :GundoToggle<CR>
