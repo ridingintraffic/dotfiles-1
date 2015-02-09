@@ -101,6 +101,7 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
     __git_complete glg _git_log
     __git_complete glf _git_log
     __git_complete gld _git_log
+    __git_complete 'git freebase' _git_rebase
     # tmuxinator
     . $HOME/.tmuxinator.bash
 fi

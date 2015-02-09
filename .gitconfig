@@ -109,6 +109,8 @@
     goto = "!f() { git fetch; git reset --hard $1; git clean -d -f; }; f"
     # pull rebase
     pullr = pull --rebase
+    # freebase
+    freebase = "!f() { git fetch; git rebase `git remote show | head -1`/$1; }; f"
 [color]
     ui = auto
     status = auto
