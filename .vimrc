@@ -234,6 +234,10 @@ au Filetype html,xml,xsl,ejs,mustache source ~/.vim/scripts/closetag.vim
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_html_checkers = []
 " let g:syntastic_javascript_args = "--my --args --here"
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
 " lint on save
 " let jshint2_save = 1
 

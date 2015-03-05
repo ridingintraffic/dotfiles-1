@@ -74,6 +74,7 @@ alias gst='git status -s'
 alias glg='git lg'
 alias glf='git lf'
 alias gld='git ld'
+alias groot='git rev-parse && cd "$(git rev-parse --show-cdup)"'
 
 # github cli
 eval "$(gh alias -s)"
