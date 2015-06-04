@@ -1,12 +1,18 @@
-# ~/.tmuxinator/cms.yml
+# ~/.tmuxinator/www.yml
 
 name: cms
 root: ~/Repos/www-cars-com/
 
 windows:
-  - platform: clear
+  - platform: clear;git status
   - static:
       layout: 4285,178x46,0,0[178x34,0,0,1,178x11,0,35,2]
       panes:
-        - cd ~/Repos/www-cars-com-static;vim
-        - cd ~/Repos/www-cars-com-static;git status
+        - cd ../www-cars-com-static;vim
+        - cd ../www-cars-com-static;clear;git status
+  - config:
+      layout: even-horizontal
+      panes:
+        - cd ../config-management;clear;git status
+        - cd ../config-bootstrapper;clear;git status
+  - util: cd ..;clear
