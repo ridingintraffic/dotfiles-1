@@ -49,6 +49,8 @@ alias lr=ListRecursively
 alias h=GrepHistory
 alias hl=GrepHistory
 alias cl='clear'
+alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
+alias FUCK='fuck'
 
 # directories, branches, apps
 alias dotfiles='cd ~/.dotfiles'
