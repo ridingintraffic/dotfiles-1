@@ -158,3 +158,5 @@ elif type compctl &>/dev/null; then
   }
   compctl -K _pm2_completion + -f + pm2
 fi
+
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
