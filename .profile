@@ -2,7 +2,7 @@
 
 # vars
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home"
-export PATH="$HOME/bin:$JAVA_HOME/bin:/Users/macheller-ogden/Tools:/Users/macheller-ogden/.rbenv/shims:/Users/macheller-ogden/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$HOME/bin:$HOME/.node/bin:$JAVA_HOME/bin:/Users/macheller-ogden/Tools:/Users/macheller-ogden/.rbenv/shims:/Users/macheller-ogden/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export CLASSPATH="$JAVA_HOME/lib/tools.jar"
 export HOST_DEV=cj8mcl121
 export HOST_FT=cj7mcl121
