@@ -247,3 +247,7 @@ autocmd FileType html,ejs,mustache,css EmmetInstall
 
 " emmet trigger key to ctrl-z
 " let g:user_emmet_leader_key='<C-Z>'
+
+" intellisense
+set omnifunc=syntaxcomplete#Complete
+
