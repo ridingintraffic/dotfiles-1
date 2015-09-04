@@ -7,11 +7,11 @@ windows:
   - windshield:
       layout: 4285,178x46,0,0[178x34,0,0,1,178x11,0,35,2]
       panes:
-        - cd ../windshield;vim .
-        - cd ../windshield;clear;git status
+        - cd ./windshield;vim .
+        - cd ./windshield;clear;git status
   - www-cars-com-windshield:
       layout: 4285,178x46,0,0[178x34,0,0,1,178x11,0,35,2]
       panes:
-        - cd ../www-cars-com-windshield;vim .
-        - cd ../www-cars-com-windshield;clear;git status
+        - cd ./www-cars-com-windshield;vim .
+        - cd ./www-cars-com-windshield;clear;git status
   - util: clear
