@@ -18,11 +18,7 @@ export DISPLAY=:0
 
 # vim
 set -o vi
-if [[ -n $SSH_CONNECTION ]]; then
-    export EDITOR='vim'
-else
-    export EDITOR='mvim'
-fi
+export EDITOR='vim'
 
 # git
 source ~/.bash-git-prompt/gitprompt.sh
