@@ -2,16 +2,15 @@
 
 # vars
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home"
-export PATH="$HOME/bin:$HOME/.node/bin:$JAVA_HOME/bin:/Users/macheller-ogden/Tools:/Users/macheller-ogden/.rbenv/shims:/Users/macheller-ogden/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$HOME/bin:$HOME/.node/bin:$JAVA_HOME/bin:/Users/macheller-ogden/Repos/cars-scripts:/Users/macheller-ogden/Tools:/Users/macheller-ogden/.rbenv/shims:/Users/macheller-ogden/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export CLASSPATH="$JAVA_HOME/lib/tools.jar"
 export HOST_DEV=cj8mcl121
 export HOST_FT=cj7mcl121
 export HOST_IT_MGMT=cj6mcl101
 export HOST_IT_DELIVERY_1=cj6mcl121
 export HOST_IT_DELIVERY_2=cj6mcl122
-export DOCKER_TLS_VERIFY=1
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/macheller-ogden/.boot2docker/certs/boot2docker-vm
+export V8PROFILER=/Users/macheller-ogden/.node/lib/node_modules/v8-profiler
+
 
 # display variable for JumpStart
 export DISPLAY=:0

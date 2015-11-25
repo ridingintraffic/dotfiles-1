@@ -124,7 +124,7 @@ set tabpagemax=50
 cabbr tb tab ball
 
 " map <Esc> to jk in insert mode (has to be typed quick)
-" imap jk <Esc>
+imap jk <Esc>
 
 " keep the current visual block selection active after changing indent with '<' or '>'
 " vmap > >gv
@@ -168,8 +168,11 @@ imap <a-v> <ESC>:set paste<CR>"*p:set nopaste<CR>a
 " fix backspace (for windows)
 set backspace=indent,eol,start
 
-" remote trailing whitespace
+" remove trailing whitespace
 nnoremap <Leader>rtw :%s/\s\+$//e<CR>
+
+" replace tabs with spaces
+nnoremap <Leader>tts :%s/	/    /g<CR>
 
 " show white space
 set list listchars=tab:>-,trail:-
@@ -248,6 +251,28 @@ autocmd FileType html,ejs,mustache,css EmmetInstall
 " emmet trigger key to ctrl-z
 " let g:user_emmet_leader_key='<C-Z>'
 
+
 " intellisense
 set omnifunc=syntaxcomplete#Complete
+" The following command will change the 'completeopt' option so that Vim's
+" popup menu doesn't select the first completion item, but rather just inserts
+" the longest common text of all matches; and the menu will come up even if
+" there's only one match. (The longest setting is responsible for the former
+" effect and the menuone is responsible for the latter.)
+set completeopt=longest,menuone
 
+" In the following mappings, the first will make <C-N> work the way it normally
+" does; however, when the menu appears, the <Down> key will be simulated. What
+" this accomplishes is it keeps a menu item always highlighted. This way you can
+" keep typing characters to narrow the matches, and the nearest match will be
+" selected so that you can hit Enter at any time to insert it. In the above
+" mappings, the second one is a little more exotic: it simulates <C-X><C-O> to
+" bring up the omni completion menu, then it simulates <C-N><C-P> to remove the
+" longest common text, and finally it simulates <Down> again to keep a match
+" highlighted.
+
+" inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+"   \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+" inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+"   \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
