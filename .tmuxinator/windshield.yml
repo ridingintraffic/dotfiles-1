@@ -4,13 +4,18 @@ name: windshield
 root: ~/Repos/
 
 windows:
+  - www-cars-com-rendering:
+      layout: 9eaa,231x55,0,0[231x37,0,0,0,231x17,0,38,3]
+      panes:
+        - cd ./www-cars-com-rendering;vim .
+        - cd ./www-cars-com-rendering;clear;git status
+  - rendering-service:
+      layout: 9eaa,231x55,0,0[231x37,0,0,0,231x17,0,38,3]
+      panes:
+        - cd ./cars-rendering-service;vim .
+        - cd ./cars-rendering-service;clear;git status
   - windshield:
-      layout: 5137,318x78,0,0[318x50,0,0,0,318x27,0,51{159x27,0,51,2,158x27,160,51,4}]
+      layout: 9eaa,231x55,0,0[231x37,0,0,0,231x17,0,38,3]
       panes:
-        - cd ./windshield;vim .
-        - cd ./windshield;clear;git status
-        - cd ./www-cars-com-windshield;clear;git status
-  - www-cars-com-windshield:
-      layout: even-horizontal
-      panes:
-        - cd ./www-cars-com-windshield;vim .
+        - cd ./windshieldjs;vim .
+        - cd ./www-cars-com-rendering;clear;git status

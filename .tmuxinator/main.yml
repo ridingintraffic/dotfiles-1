@@ -1,7 +1,7 @@
 # ~/.tmuxinator/main.yml
 
 name: main
-root: ~/
+root: ~/Repos
 
 windows:
   - main: clear
