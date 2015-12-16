@@ -8,8 +8,8 @@ set ttyscroll=0
 set t_Co=256
 syntax on
 
-" dark background, yes
-set background=dark
+" pathogen - https://github.com/tpope/vim-pathogen
+call pathogen#infect()
 
 " no swap files
 set noswapfile
@@ -18,11 +18,11 @@ set noswapfile
 " backup to the name of the original file... it's annoying
 set nowritebackup
 
-" jelly beans
-" colorscheme jellybeans
-
-" monokai
-colorscheme monokai
+" theme
+set background=dark
+colorscheme molokai
+" colorscheme getafe
+" colorscheme Tomorrow-Night-Bright
 
 " font
 if has("gui_running")
@@ -212,9 +212,6 @@ set directory+=,~/tmp,$TMP
 " ****************
 " Plugins
 " ****************
-
-" pathogen - https://github.com/tpope/vim-pathogen
-call pathogen#infect()
 
 " ConqueTerm
 let g:ConqueTerm_PyExe = 'usr/bin/python'
