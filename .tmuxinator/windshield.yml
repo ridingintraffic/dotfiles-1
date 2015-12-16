@@ -1,21 +1,10 @@
 # ~/.tmuxinator/windshield.yml
 
 name: windshield
-root: ~/Repos/
+root: ~/Repos/www-cars-com-rendering
 
 windows:
   - www-cars-com-rendering:
-      layout: 9eaa,231x55,0,0[231x37,0,0,0,231x17,0,38,3]
+      layout: main-vertical
       panes:
-        - cd ./www-cars-com-rendering;vim .
-        - cd ./www-cars-com-rendering;clear;git status
-  - rendering-service:
-      layout: 9eaa,231x55,0,0[231x37,0,0,0,231x17,0,38,3]
-      panes:
-        - cd ./cars-rendering-service;vim .
-        - cd ./cars-rendering-service;clear;git status
-  - windshield:
-      layout: 9eaa,231x55,0,0[231x37,0,0,0,231x17,0,38,3]
-      panes:
-        - cd ./windshieldjs;vim .
-        - cd ./www-cars-com-rendering;clear;git status
+        - clear

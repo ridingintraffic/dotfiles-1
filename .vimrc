@@ -29,7 +29,7 @@ if has("gui_running")
   if has("gui_gtk2")
     set guifont=Inconsolata\ 12
   elseif has("gui_macvim")
-    set guifont=Source\ Code\ Pro:h14
+    set guifont=Source\ Code\ Pro\ for\ Powerline:h14
   elseif has("gui_win32")
     set guifont=Consolas:h13:cANSI
   endif
@@ -66,18 +66,22 @@ set guioptions=
 " status line
 set noruler             " ruler, no
 set laststatus=2        " statusbar on every buffer, yes
-set statusline=%f       " path to the file in the buffer, as typed or relative to current directory
-set statusline+=%{fugitive#statusline()} " git status (courtesy of fugitive)
-set statusline+=[%{strlen(&fenc)?&fenc:'none'}, " file encoding
-set statusline+=%{&ff}] " file format
-set statusline+=%h      " help file flag
-set statusline+=%m      " modified flag
-set statusline+=%r      " read only flag
-set statusline+=%y      " filetype
-set statusline+=%=      " left/right separator
-set statusline+=%c,     " cursor column
-set statusline+=%l/%L   " cursor line/total lines
-set statusline+=\ %P    " percent of file on screen
+let g:airline_powerline_fonts=1
+let g:airline_theme="hybridline"
+
+" using airline now ... keeping this here for posterity
+" set statusline=%f       " path to the file in the buffer, as typed or relative to current directory
+" set statusline+=%{fugitive#statusline()} " git status (courtesy of fugitive)
+" set statusline+=[%{strlen(&fenc)?&fenc:'none'}, " file encoding
+" set statusline+=%{&ff}] " file format
+" set statusline+=%h      " help file flag
+" set statusline+=%m      " modified flag
+" set statusline+=%r      " read only flag
+" set statusline+=%y      " filetype
+" set statusline+=%=      " left/right separator
+" set statusline+=%c,     " cursor column
+" set statusline+=%l/%L   " cursor line/total lines
+" set statusline+=\ %P    " percent of file on screen
 
 " line numbers, yes
 set number
