@@ -43,3 +43,18 @@
 [submodule ".vim/bundle/vim-tomorrow-theme"]
 	path = .vim/bundle/vim-tomorrow-theme
 	url = https://github.com/chriskempson/vim-tomorrow-theme.git
+[submodule ".vim/bundle/vim-hybrid-material"]
+	path = .vim/bundle/vim-hybrid-material
+	url = https://github.com/kristijanhusak/vim-hybrid-material.git
+[submodule ".vim/bundle/vim-hybrid"]
+	path = .vim/bundle/vim-hybrid
+	url = https://github.com/w0ng/vim-hybrid.git
+[submodule ".vim/bundle/color-scheme-holokai-for-vim"]
+	path = .vim/bundle/color-scheme-holokai-for-vim
+	url = https://github.com/changyuheng/color-scheme-holokai-for-vim.git
+[submodule ".vim/bundle/RadicalGoodSpeed.vim"]
+	path = .vim/bundle/RadicalGoodSpeed.vim
+	url = https://github.com/svjunic/RadicalGoodSpeed.vim.git
+[submodule ".vim/bundle/vim-gitgutter"]
+	path = .vim/bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git

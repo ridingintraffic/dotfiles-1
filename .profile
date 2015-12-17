@@ -173,3 +173,6 @@ export DOCKER_OPTS="-dns 172.17.18.56"
 export POWERTRAIN="/Users/macheller-ogden/Repos/powertrain/Makefile"
 
 CONFIG_API=ttp://www-dev01-01.cars.com/ajax/config-api/1.0/rest/config
+
+# for vim pipe2eval plugin (https://github.com/zweifisch/pipe2eval)
+export PIP2EVAL_TMP_FILE_PATH=/tmp/shms

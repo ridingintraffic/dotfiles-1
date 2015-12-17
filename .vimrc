@@ -20,9 +20,14 @@ set nowritebackup
 
 " theme
 set background=dark
-colorscheme molokai
+" let g:enable_bold_font=1
+" colorscheme molokai
 " colorscheme getafe
 " colorscheme Tomorrow-Night-Bright
+" colorscheme hybrid_material
+" colorscheme CodeFactoryv3
+" colorscheme holokai
+colorscheme radicalgoodspeed
 
 " font
 if has("gui_running")
@@ -101,6 +106,9 @@ set cmdheight=2
 
 " A buffer becomes hidden when it is abandoned
 set hid
+
+" set leader
+let mapleader="\<Space>"
 
 " Ignore case when searching
 set ignorecase
@@ -227,6 +235,7 @@ let g:yankring_zap_keys = 'f F t T / ?'
 " NERDtree - http://vim.sourceforge.net/scripts/script.php?script_id=1658
 nnoremap <silent> <F5> :NERDTreeToggle<CR>
 " let NERDTreeShowBookmarks=1
+autocmd vimenter * NERDTree
 
 " gundo - http://sjl.bitbucket.org/gundo.vim/
 nnoremap <silent> <F6> :GundoToggle<CR>
@@ -277,3 +286,14 @@ set completeopt=longest,menuone
 
 " inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
 "   \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+function! RunInTmux(cmd)
+  :execute ":silent !tmux splitw -h '".a:cmd."; tmux select-pane -L'"
+endfunction
+autocmd FileType markdown nnoremap <Leader>k :!open -a Marked\ 2.app '%:p'<CR>
+autocmd FileType javascript nnoremap <Leader>n :call RunInTmux('node --debug --es_staging %')<CR>
+autocmd FileType sh nnoremap <Leader>e :call RunInTmux('sh %')<CR>
+nnoremap <Leader>! :call RunInTmux('chmod +x % && %')<CR>
+nnoremap <Leader>m :call RunInTmux('make')<CR>
+command! -nargs=1 ND :execute ":silent !tmux splitw -h 'killall -9 node;node-vim-inspector " . string(<q-args>) . " --es_staging';tmux select-pane -L" | sleep 1000m | :nbs
+
