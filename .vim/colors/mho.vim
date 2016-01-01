@@ -199,16 +199,25 @@ hi link cssTextAttr Constant
 hi link cssColorAttr Constant
 hi link cssFontAttr Constant
 
-" fix gutter and cursor line colors
+" gutter
 hi LineNr            ctermbg=236 guibg=#303030 ctermfg=241 guifg=#606060
 hi SignColumn        ctermbg=236 guibg=#303030
 hi GitGutterAdd      ctermbg=236 guibg=#303030 ctermfg=112 guifg=#87d700
 hi GitGutterChange   ctermbg=236 guibg=#303030 ctermfg=45 guifg=#00dfff
 hi GitGutterDelete   ctermbg=236 guibg=#303030 ctermfg=161 guifg=#df005f
 hi link GitGutterChangeDelete GitGutterChange
+
+" cursorline
 hi CursorLine        ctermbg=233 guibg=#121212
 augroup CursorLine
   autocmd!
   autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
   autocmd WinLeave * setlocal nocursorline
 augroup END
+
+" colorcolumn
+hi ColorColumn ctermbg=239 guibg=#4e4e4e
+
+" custom "ExtraWhitespace" highlight group
+hi ExtraWhitespace ctermfg=240 guifg=#585858
+

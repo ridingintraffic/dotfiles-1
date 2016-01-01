@@ -1417,11 +1417,11 @@
 			<key>Ansi 0 Color</key>
 			<dict>
 				<key>Blue Component</key>
-				<real>0.16072532534599304</real>
+				<real>0.0</real>
 				<key>Green Component</key>
-				<real>0.15914958715438843</real>
+				<real>0.0</real>
 				<key>Red Component</key>
-				<real>0.15993745625019073</real>
+				<real>0.0</real>
 			</dict>
 			<key>Ansi 1 Color</key>
 			<dict>
@@ -1565,11 +1565,11 @@
 			<key>Background Color</key>
 			<dict>
 				<key>Blue Component</key>
-				<real>0.16072532534599304</real>
+				<real>0.0</real>
 				<key>Green Component</key>
-				<real>0.15914958715438843</real>
+				<real>0.0</real>
 				<key>Red Component</key>
-				<real>0.15993745625019073</real>
+				<real>0.0</real>
 			</dict>
 			<key>Background Image Is Tiled</key>
 			<false/>

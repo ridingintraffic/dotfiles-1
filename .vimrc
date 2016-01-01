@@ -153,25 +153,43 @@ let g:airline_powerline_fonts=1
 let g:airline_theme="hybridline"
 
 " highlight char at 81st column
-autocmd BufWinEnter * hi ColorColumn ctermbg=239 guibg=#4e4e4e
 call matchadd('ColorColumn', '\%81v', 100)
 
 " Show trailing whitespace and tabs
-autocmd BufWinEnter * highlight ExtraWhitespace ctermfg=240 guifg=#585858
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$\|\t/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$\|\t/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$\|\t/
-autocmd BufWinLeave * call clearmatches()
+augroup extrawhitespace_autocmd
+    autocmd!
+    autocmd BufWinEnter * match ExtraWhitespace /\s\+$\|\t/
+    autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$\|\t/
+    autocmd InsertLeave * match ExtraWhitespace /\s\+$\|\t/
+    autocmd BufWinLeave * call clearmatches()
+    autocmd InsertEnter * set nolist
+    autocmd InsertLeave * set list
+augroup END
 set listchars=tab:▶▶,trail:∙,nbsp:▒
 set list
-autocmd InsertEnter * set nolist
-autocmd InsertLeave * set list
 
 " theme
 set background=dark
 let g:enable_bold_font=1
 let g:gitgutter_override_sign_column_highlight=0
+
 colorscheme mho
+
+fun! SetColorScheme()
+    if (&ft == 'nerdtree' || &ft == '')
+        return
+    elseif &ft == 'go'
+        colorscheme triplejelly
+    else
+        colorscheme mho
+    endif
+    :AirlineRefresh
+endfun
+
+augroup colorscheme_autocmd
+    autocmd!
+    autocmd BufEnter * call SetColorScheme()
+augroup END
 
 " font
 if has("gui_running")
