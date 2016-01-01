@@ -176,3 +176,6 @@ CONFIG_API=ttp://www-dev01-01.cars.com/ajax/config-api/1.0/rest/config
 
 # for vim pipe2eval plugin (https://github.com/zweifisch/pipe2eval)
 export PIP2EVAL_TMP_FILE_PATH=/tmp/shms
+
+export GOPATH=$HOME/Repos/go
+export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin

@@ -1,0 +1,10 @@
+# ~/.tmuxinator/go.yml
+
+name: go
+root: ~/Repos/go/src/github.com/machellerogden/
+
+windows:
+  - editor:
+      layout: main-vertical
+      panes:
+        - vim .
