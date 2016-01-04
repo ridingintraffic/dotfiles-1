@@ -204,6 +204,7 @@ endif
 
 " highlight next search item
 set hls
+nnoremap <Leader>nh :nohls<cr>
 autocmd BufWinEnter * highlight NextItem ctermbg=112 guibg=#87d700 ctermfg=236 guifg=#303030
 nnoremap <silent> n n:call HLNext(80)<cr>
 nnoremap <silent> N N:call HLNext(80)<cr>
