@@ -1,6 +1,8 @@
 [user]
     name = Mac Heller-Ogden
     email = mac@machellerogden.com
+[pull]
+    rebase = true
 [push]
     default = simple
 [alias]

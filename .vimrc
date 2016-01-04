@@ -176,7 +176,7 @@ let g:gitgutter_override_sign_column_highlight=0
 colorscheme mho
 
 fun! SetColorScheme()
-    if (&ft == 'nerdtree' || &ft == '')
+    if (&ft == '')
         return
     elseif &ft == 'go'
         colorscheme triplejelly
@@ -248,7 +248,18 @@ let g:yankring_zap_keys = 'f F t T / ?'
 
 " NERDtree - http://vim.sourceforge.net/scripts/script.php?script_id=1658
 nnoremap <silent> <F5> :NERDTreeToggle<CR>
-autocmd vimenter * NERDTree | sleep 1m | :wincmd l | :only
+fun! InitNERDTree()
+    let isNERDTree = (&ft == 'nerdtree')
+    :NERDTree
+    sleep 1m
+    if (isNERDTree)
+        :wincmd h
+    else
+        :wincmd l
+    endif
+    :only
+endfun
+autocmd vimenter * call InitNERDTree()
 
 " gundo - http://sjl.bitbucket.org/gundo.vim/
 nnoremap <silent> <F6> :GundoToggle<CR>
