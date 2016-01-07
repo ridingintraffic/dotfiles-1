@@ -204,7 +204,7 @@ endif
 
 " highlight next search item
 set hls
-nnoremap <Leader>nh :nohls<cr>
+nnoremap <Leader>h :nohls<cr>
 autocmd BufWinEnter * highlight NextItem ctermbg=112 guibg=#87d700 ctermfg=236 guifg=#303030
 nnoremap <silent> n n:call HLNext(80)<cr>
 nnoremap <silent> N N:call HLNext(80)<cr>
@@ -248,10 +248,10 @@ nnoremap <silent> <F4> :YRShow<CR>
 let g:yankring_zap_keys = 'f F t T / ?'
 
 " NERDtree - http://vim.sourceforge.net/scripts/script.php?script_id=1658
-nnoremap <silent> <F5> :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>f :NERDTreeToggle<CR>
 fun! InitNERDTree()
     let isNERDTree = (&ft == 'nerdtree')
-    :NERDTree
+    :execute ':NERDTree ' . argv()[0]
     sleep 1m
     if (isNERDTree)
         :wincmd h
