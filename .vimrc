@@ -204,7 +204,7 @@ endif
 
 " highlight next search item
 set hls
-nnoremap <Leader>h :nohls<cr>
+nnoremap <Leader>n :nohls<cr>
 autocmd BufWinEnter * highlight NextItem ctermbg=112 guibg=#87d700 ctermfg=236 guifg=#303030
 nnoremap <silent> n n:call HLNext(80)<cr>
 nnoremap <silent> N N:call HLNext(80)<cr>
@@ -248,14 +248,16 @@ nnoremap <silent> <F4> :YRShow<CR>
 let g:yankring_zap_keys = 'f F t T / ?'
 
 " NERDtree - http://vim.sourceforge.net/scripts/script.php?script_id=1658
-nnoremap <silent> <Leader>f :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>a :execute ':silent! NERDTreeToggle'<cr>
 fun! InitNERDTree()
     let isNERDTree = (&ft == 'nerdtree')
-    :execute ':NERDTree ' . argv()[0]
+    let dir = fnamemodify((argv() != []) ? argv()[0] : expand('%:p:h'), ':h')
     sleep 1m
     if (isNERDTree)
+        :execute ':NERDTree ' . dir
         :wincmd h
     else
+        :execute ':NERDTree ' . dir
         :wincmd l
     endif
     :only
@@ -290,10 +292,10 @@ set completeopt=longest,menuone
 function! RunInTmux(cmd)
   :execute ":silent !tmux splitw -h '".a:cmd."; tmux select-pane -L'"
 endfunction
-autocmd FileType markdown nnoremap <Leader>k :!open -a Marked\ 2.app '%:p'<CR>
-autocmd FileType javascript nnoremap <Leader>n :call RunInTmux('node --debug --es_staging %')<CR>
-autocmd FileType sh nnoremap <Leader>e :call RunInTmux('sh %')<CR>
-nnoremap <Leader>! :call RunInTmux('chmod +x % && %')<CR>
-nnoremap <Leader>m :call RunInTmux('make')<CR>
+"autocmd FileType markdown nnoremap <Leader>k :!open -a Marked\ 2.app '%:p'<CR>
+"autocmd FileType javascript nnoremap <Leader>n :call RunInTmux('node --debug --es_staging %')<CR>
+"autocmd FileType sh nnoremap <Leader>e :call RunInTmux('sh %')<CR>
+"nnoremap <Leader>! :call RunInTmux('chmod +x % && %')<CR>
+"nnoremap <Leader>m :call RunInTmux('make')<CR>
 command! -nargs=1 ND :execute ":silent !tmux splitw -h 'killall -9 node;node-vim-inspector " . string(<q-args>) . " --es_staging';sleep 2;tmux splitw -v 'node debug localhost:5858';tmux select-pane -L" | :nbs
 
