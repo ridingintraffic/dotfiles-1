@@ -251,7 +251,6 @@ let g:yankring_zap_keys = 'f F t T / ?'
 nnoremap <silent> <Leader>a :execute ':silent! NERDTreeToggle'<cr>
 fun! InitNERDTree()
     let isNERDTree = (&ft == 'nerdtree')
-    " let dir = fnamemodify((argv() != []) ? argv()[0] : expand('%:p:h'), ':h')
     let dir = (argv() != []) ? fnamemodify(argv()[0], ':h') : expand('%:p:h')
     sleep 1m
     if (isNERDTree)
