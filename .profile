@@ -46,6 +46,9 @@ function GrepHistory() {
 function GrepHistoryToLess() {
     history | grep "$@" | less;
 }
+function DockerPorts(){
+    docker inspect --format='{{range $p, $conf := .NetworkSettings.Ports}} {{(index $conf 0).HostPort}} {{end}}' $(docker ps -q) 2> /dev/null
+}
 
 # utility
 alias pa=FindProcess
@@ -58,6 +61,7 @@ alias hl=GrepHistory
 alias cl='clear'
 alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
 alias FUCK='fuck'
+alias dports=DockerPorts
 
 # directories, branches, apps
 alias dotfiles='cd ~/.dotfiles'
@@ -163,19 +167,9 @@ fi
 
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
-
-export DOCKER_TLS_VERIFY="1"
-export DOCKER_HOST="tcp://192.168.99.100:2376"
-export DOCKER_CERT_PATH="/Users/macheller-ogden/.docker/machine/machines/dev"
-export DOCKER_MACHINE_NAME="dev"
-
-
 export POWERTRAIN="/Users/macheller-ogden/Repos/powertrain/Makefile"
 
 CONFIG_API=ttp://www-dev01-01.cars.com/ajax/config-api/1.0/rest/config
-
-# for vim pipe2eval plugin (https://github.com/zweifisch/pipe2eval)
-export PIP2EVAL_TMP_FILE_PATH=/tmp/shms
 
 export GOPATH=$HOME/Repos/go
 export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
