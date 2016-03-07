@@ -13,5 +13,4 @@ windows:
   - apps:
       layout: even-horizontal
       panes:
-        - userprofile
         - clear

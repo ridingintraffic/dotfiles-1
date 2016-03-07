@@ -1,0 +1,7 @@
+# ~/.tmuxinator/aux.yml
+
+name: aux
+root: ~/Repos
+
+windows:
+  - aux:

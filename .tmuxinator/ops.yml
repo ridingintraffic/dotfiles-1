@@ -1,0 +1,7 @@
+# ~/.tmuxinator/ops.yml
+
+name: ops
+root: ~/
+
+windows:
+  - ops:
