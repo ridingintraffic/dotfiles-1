@@ -11,7 +11,6 @@ export HOST_IT_DELIVERY_1=cj6mcl121
 export HOST_IT_DELIVERY_2=cj6mcl122
 export V8PROFILER=/Users/macheller-ogden/.node/lib/node_modules/v8-profiler
 
-
 # display variable for JumpStart
 export DISPLAY=:0
 
@@ -167,8 +166,6 @@ elif type compctl &>/dev/null; then
 fi
 
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
-
-export POWERTRAIN="/Users/macheller-ogden/Repos/powertrain/Makefile"
 
 export GOPATH=$HOME/Repos/go
 export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
