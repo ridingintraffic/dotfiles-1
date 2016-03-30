@@ -290,10 +290,10 @@ set completeopt=longest,menuone
 
 " Custom IDE functionality using tmux
 function! RunInTmux(cmd)
-  :execute ":silent !tmux splitw -h '".a:cmd."; tmux select-pane -L'"
+  :execute ":silent !tmux splitw -h '".a:cmd."; read; tmux select-pane -L'"
 endfunction
 autocmd FileType markdown nnoremap <Leader>k :!open -a Marked\ 2.app '%:p'<CR>
-"autocmd FileType javascript nnoremap <Leader>n :call RunInTmux('node --debug --es_staging %')<CR>
+autocmd FileType javascript nnoremap <Leader>r :call RunInTmux('node --debug --es_staging %')<CR>
 "autocmd FileType sh nnoremap <Leader>e :call RunInTmux('sh %')<CR>
 "nnoremap <Leader>! :call RunInTmux('chmod +x % && %')<CR>
 "nnoremap <Leader>m :call RunInTmux('make')<CR>
