@@ -170,10 +170,5 @@ export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PR
 export GOPATH=$HOME/Repos/go
 export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
 
-export DOCKER_TLS_VERIFY="1"
-export DOCKER_HOST="tcp://192.168.99.100:2376"
-export DOCKER_CERT_PATH="/Users/macheller-ogden/.docker/machine/machines/cars"
-export DOCKER_MACHINE_NAME="cars"
-
 export ROKU_DEV_TARGET=172.17.244.254
 export DEVPASSWORD=true

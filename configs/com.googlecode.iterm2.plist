@@ -1384,15 +1384,15 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame Preferences</key>
-	<string>971 819 924 485 0 0 2560 1417 </string>
+	<string>970 818 924 485 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 916 650 501 0 0 2560 1417 </string>
-	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 4 2560 1413 0 0 2560 1417 </string>
+	<key>NSWindow Frame iTerm Window 1</key>
+	<string>0 509 650 501 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>0 399 650 476 0 0 1440 877 </string>
+	<string>0 361 650 501 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>225 22 650 476 0 0 1440 878 </string>
+	<string>225 4 650 501 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
 	<string>246 402 650 476 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
@@ -1654,7 +1654,7 @@
 			<key>Idle Code</key>
 			<integer>0</integer>
 			<key>Initial Text</key>
-			<string>mux s main</string>
+			<string>read -p "Starting tmux session... (ctrl-c to cancel) ";mux s main</string>
 			<key>Jobs to Ignore</key>
 			<array>
 				<string>rlogin</string>
@@ -2147,7 +2147,7 @@
 	<key>NoSyncTimeOfLastPromo</key>
 	<real>477846602.42321497</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>480953344.51565403</real>
+	<real>486655358.88600802</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -2214,7 +2214,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-03-29T14:09:03Z</date>
+	<date>2016-06-03T14:02:38Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -2248,7 +2248,7 @@
 	<key>WebKitDefaultFontSize</key>
 	<integer>11</integer>
 	<key>WebKitStandardFont</key>
-	<string>.Helvetica Neue DeskInterface</string>
+	<string>.AppleSystemUIFont</string>
 	<key>WindowNumber</key>
 	<true/>
 	<key>WindowStyle</key>

@@ -165,7 +165,7 @@ augroup extrawhitespace_autocmd
     autocmd InsertEnter * set nolist
     autocmd InsertLeave * set list
 augroup END
-set listchars=tab:▶▶,trail:∙,nbsp:▒
+set listchars=nbsp:¬,tab:▶▶,trail:∙,nbsp:▒
 set list
 
 " theme
@@ -298,4 +298,5 @@ autocmd FileType javascript nnoremap <Leader>r :call RunInTmux('node --debug --e
 "nnoremap <Leader>! :call RunInTmux('chmod +x % && %')<CR>
 "nnoremap <Leader>m :call RunInTmux('make')<CR>
 command! -nargs=1 ND :execute ":silent !tmux splitw -h 'killall -9 node;node-vim-inspector " . string(<q-args>) . " --es_staging';sleep 2;tmux splitw -v 'node debug localhost:5858';tmux select-pane -L" | :nbs
+autocmd FileType javascript nmap <Leader>= ciwvar pa = require('phcrk$a');
 
