@@ -172,3 +172,12 @@ export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
 
 export ROKU_DEV_TARGET=172.17.244.254
 export DEVPASSWORD=true
+
+export CRANKSHAFT=$HOME/Repos/crankshaft
+export PATH=$PATH:$CRANKSHAFT
+
+alias ddown='docker ps -q | xargs docker stop | xargs docker rm'
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
