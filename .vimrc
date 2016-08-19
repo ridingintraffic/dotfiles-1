@@ -307,9 +307,10 @@ function! RunInTmux(cmd)
 endfunction
 autocmd FileType markdown nnoremap <Leader>k :!open -a Marked\ 2.app '%:p'<CR>
 autocmd FileType javascript nnoremap <Leader>r :call RunInTmux('node --debug --es_staging %')<CR>
+autocmd FileType sh nnoremap <Leader>s :call RunInTmux('sh %')<CR>
 "autocmd FileType sh nnoremap <Leader>e :call RunInTmux('sh %')<CR>
 "nnoremap <Leader>! :call RunInTmux('chmod +x % && %')<CR>
 "nnoremap <Leader>m :call RunInTmux('make')<CR>
 command! -nargs=1 ND :execute ":silent !tmux splitw -h 'killall -9 node;node-vim-inspector " . string(<q-args>) . "';sleep 2;tmux splitw -v 'node debug localhost:5858';tmux select-pane -L" | :nbs
-autocmd FileType javascript nmap <Leader>= ciwvar pa = require('phcrk$a');
+autocmd FileType javascript nmap <Leader>= ciwconst pa = require('phcrk$a');
 
