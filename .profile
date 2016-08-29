@@ -62,6 +62,7 @@ alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
 alias FUCK='fuck'
 alias dports=DockerPorts
 alias hc='history -c && clear'
+alias mktmp=mktemp -d 2>/dev/null || mktemp -d -t 'mktmp'
 
 # directories, branches, apps
 alias dotfiles='cd ~/.dotfiles'

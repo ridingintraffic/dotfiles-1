@@ -31,7 +31,7 @@ if &term =~ '^screen' && exists('$TMUX')
     execute "set <xDown>=\e[1;*B"
     execute "set <xRight>=\e[1;*C"
     execute "set <xLeft>=\e[1;*D"
-    execute "set <xHome>=\e[1;*H"
+    execute "set <xHome>=\e[1;*H"      
     execute "set <xEnd>=\e[1;*F"
     execute "set <Insert>=\e[2;*~"
     execute "set <Delete>=\e[3;*~"
@@ -109,7 +109,7 @@ nmap <C-j> <C-w>j
 vmap ç "*y
 vmap ≈ "*d
 nmap √ :set paste<CR>"*p:set nopaste<CR>
-imap √ <ESC>:set paste<CR>"*p:set nopaste<CR>a
+imap √ <ESC>√
 
 " toggle paste mode with <F1> ... this way you can leave autocommenting on most of the time a quickly disable it for pasting in code
 set pastetoggle=<F1>
