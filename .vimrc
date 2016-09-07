@@ -285,6 +285,7 @@ au Filetype html,xml,xsl,ejs,mustache source ~/.vim/scripts/closetag.vim
 
 " eslint
 let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_sh_checkers=['shellcheck']
 let g:syntastic_html_checkers=[]
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list=1
@@ -307,10 +308,12 @@ function! RunInTmux(cmd)
 endfunction
 autocmd FileType markdown nnoremap <Leader>k :!open -a Marked\ 2.app '%:p'<CR>
 autocmd FileType javascript nnoremap <Leader>r :call RunInTmux('node --debug --es_staging %')<CR>
-autocmd FileType sh nnoremap <Leader>s :call RunInTmux('sh %')<CR>
-"autocmd FileType sh nnoremap <Leader>e :call RunInTmux('sh %')<CR>
+autocmd FileType sh nnoremap <Leader>s :call RunInTmux('bash %')<CR>
 "nnoremap <Leader>! :call RunInTmux('chmod +x % && %')<CR>
 "nnoremap <Leader>m :call RunInTmux('make')<CR>
 command! -nargs=1 ND :execute ":silent !tmux splitw -h 'killall -9 node;node-vim-inspector " . string(<q-args>) . "';sleep 2;tmux splitw -v 'node debug localhost:5858';tmux select-pane -L" | :nbs
 autocmd FileType javascript nmap <Leader>= ciwconst pa = require('phcrk$a');
 
+au BufRead,BufNewFile *bash* let g:is_bash=1
+au BufRead,BufNewFile *bash* let g:is_posix=1
+au BufRead,BufNewFile *bash* setf sh
