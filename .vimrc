@@ -106,6 +106,7 @@ nmap <C-k> <C-w>k
 nmap <C-j> <C-w>j
 
 " copy paste from system clipboard
+set clipboard=unnamed
 vmap ç "*y
 vmap ≈ "*d
 nmap √ :set paste<CR>"*p:set nopaste<CR>
@@ -157,13 +158,13 @@ call matchadd('ColorColumn', '\%81v', 100)
 
 " Show trailing whitespace and tabs
 augroup extrawhitespace_autocmd
-    autocmd!
-    autocmd BufWinEnter * match ExtraWhitespace /\s\+$\|\t/
-    autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$\|\t/
-    autocmd InsertLeave * match ExtraWhitespace /\s\+$\|\t/
-    autocmd BufWinLeave * call clearmatches()
-    autocmd InsertEnter * set nolist
-    autocmd InsertLeave * set list
+    au!
+    au BufWinEnter * match ExtraWhitespace /\s\+$\|\t/
+    au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$\|\t/
+    au InsertLeave * match ExtraWhitespace /\s\+$\|\t/
+    au BufWinLeave * call clearmatches()
+    au InsertEnter * set nolist
+    au InsertLeave * set list
 augroup END
 set listchars=nbsp:¬,tab:▶▶,trail:∙,nbsp:▒
 set list
@@ -187,8 +188,8 @@ fun! SetColorScheme()
 endfun
 
 augroup colorscheme_autocmd
-    autocmd!
-    autocmd BufEnter * call SetColorScheme()
+    au!
+    au BufEnter * call SetColorScheme()
 augroup END
 
 " font
@@ -205,7 +206,7 @@ endif
 " highlight next search item
 set hls
 nnoremap <Leader>n :nohls<cr>
-autocmd BufWinEnter * highlight NextItem ctermbg=112 guibg=#87d700 ctermfg=236 guifg=#303030
+au BufWinEnter * highlight NextItem ctermbg=112 guibg=#87d700 ctermfg=236 guifg=#303030
 nnoremap <silent> n n:call HLNext(80)<cr>
 nnoremap <silent> N N:call HLNext(80)<cr>
 function! HLNext (blinktime)
@@ -226,13 +227,13 @@ au BufNewFile,BufRead *.mustache set filetype=html
 " json formatting
 au! BufRead,BufNewFile *.json set filetype=json
 augroup json_autocmd
-    autocmd!
-    autocmd FileType json set autoindent
-    autocmd FileType json set formatoptions=tcq2l
-    autocmd FileType json set textwidth=78 shiftwidth=4
-    autocmd FileType json set softtabstop=4 tabstop=4
-    autocmd FileType json set expandtab
-    autocmd FileType json set foldmethod=syntax
+    au!
+    au FileType json set autoindent
+    au FileType json set formatoptions=tcq2l
+    au FileType json set textwidth=78 shiftwidth=4
+    au FileType json set softtabstop=4 tabstop=4
+    au FileType json set expandtab
+    au FileType json set foldmethod=syntax
 augroup END
 
 function! TmuxMove(direction)
@@ -275,7 +276,7 @@ fun! InitNERDTree()
     endif
     :only
 endfun
-autocmd vimenter * call InitNERDTree()
+au vimenter * call InitNERDTree()
 
 " gundo - http://sjl.bitbucket.org/gundo.vim/
 nnoremap <silent> <F6> :GundoToggle<CR>
@@ -292,9 +293,12 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=0
 let g:syntastic_check_on_wq=0
 
+" java
+let g:syntastic_java_javac_config_file_enabled = 1
+
 " enable emmet just for html/css
 let g:user_emmet_install_global=0
-autocmd FileType html,ejs,mustache,css EmmetInstall
+au FileType html,ejs,mustache,css EmmetInstall
 
 " intellisense
 set omnifunc=syntaxcomplete#Complete
@@ -306,13 +310,13 @@ set completeopt=longest,menuone
 function! RunInTmux(cmd)
   :execute ":silent !tmux splitw -h '".a:cmd."; read; tmux select-pane -L'"
 endfunction
-autocmd FileType markdown nnoremap <Leader>k :!open -a Marked\ 2.app '%:p'<CR>
-autocmd FileType javascript nnoremap <Leader>r :call RunInTmux('node --debug --es_staging %')<CR>
-autocmd FileType sh nnoremap <Leader>s :call RunInTmux('bash %')<CR>
+au FileType markdown nnoremap <Leader>k :!open -a Marked\ 2.app '%:p'<CR>
+au FileType javascript nnoremap <Leader>r :call RunInTmux('node --debug --es_staging %')<CR>
+au FileType sh nnoremap <Leader>s :call RunInTmux('bash %')<CR>
 "nnoremap <Leader>! :call RunInTmux('chmod +x % && %')<CR>
 "nnoremap <Leader>m :call RunInTmux('make')<CR>
 command! -nargs=1 ND :execute ":silent !tmux splitw -h 'killall -9 node;node-vim-inspector " . string(<q-args>) . "';sleep 2;tmux splitw -v 'node debug localhost:5858';tmux select-pane -L" | :nbs
-autocmd FileType javascript nmap <Leader>= ciwconst pa = require('phcrk$a');
+au FileType javascript nmap <Leader>= ciwconst pa = require('phcrk$a');
 
 au BufRead,BufNewFile *bash* let g:is_bash=1
 au BufRead,BufNewFile *bash* let g:is_posix=1
