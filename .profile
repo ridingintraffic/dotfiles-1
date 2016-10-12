@@ -3,7 +3,7 @@
 # vars
 export JAVA_VERSION=1.7
 export JAVA_HOME=`/usr/libexec/java_home -v $JAVA_VERSION`
-export PATH="$HOME/bin:$HOME/.node/bin:/Users/macheller-ogden/Repos/cars-scripts:/Users/macheller-ogden/Tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt/go/libexec/bin"
+export PATH="$HOME/bin:$HOME/.node/bin:/Users/macheller-ogden/Repos/cars-scripts:/Users/macheller-ogden/Tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 #export PATH="$HOME/bin:$HOME/.node/bin:$JAVA_HOME/bin/Users/macheller-ogden/Repos/cars-scripts:/Users/macheller-ogden/Tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 #export CLASSPATH="$JAVA_HOME/lib/tools.jar"
 export HOST_DEV=cj8mcl121
@@ -107,6 +107,13 @@ alias ddown='docker ps -q | xargs docker stop | xargs docker rm'
 alias mux='tmuxinator'
 alias jch=JCH
 
+# super cd
+alias scd='cd'
+_scd_completion() {
+    mapfile -t COMPREPLY < <(ls -d */ | grep "${COMP_WORDS[COMP_CWORD]}")
+}
+complete -F _scd_completion scd
+
 # github cli
 eval "$(gh alias -s)"
 
@@ -150,33 +157,29 @@ COMP_WORDBREAKS=${COMP_WORDBREAKS/@/}
 export COMP_WORDBREAKS
 
 if type complete &>/dev/null; then
- _pm2_completion () {
-   local si="$IFS"
-   IFS=$'\n' COMPREPLY=($(COMP_CWORD="$COMP_CWORD" \
-                          COMP_LINE="$COMP_LINE" \
-                          COMP_POINT="$COMP_POINT" \
-                          pm2 completion -- "${COMP_WORDS[@]}" \
-                          2>/dev/null)) || return $?
-   IFS="$si"
- }
- complete -o default -F _pm2_completion pm2
+    _pm2_completion () {
+        IFS=$'\n' COMPREPLY=($(COMP_CWORD="$COMP_CWORD" \
+                              COMP_LINE="$COMP_LINE" \
+                              COMP_POINT="$COMP_POINT" \
+                              pm2 completion -- "${COMP_WORDS[@]}" \
+                              2>/dev/null)) || return $?
+    }
+    complete -o default -F _pm2_completion pm2
 elif type compctl &>/dev/null; then
- _pm2_completion () {
-   local cword line point words si
-   read -Ac words
-   read -cn cword
-   let cword-=1
-   read -l line
-   read -ln point
-   si="$IFS"
-   IFS=$'\n' reply=($(COMP_CWORD="$cword" \
-                      COMP_LINE="$line" \
-                      COMP_POINT="$point" \
-                      pm2 completion -- "${words[@]}" \
-                      2>/dev/null)) || return $?
-   IFS="$si"
- }
- compctl -K _pm2_completion + -f + pm2
+    _pm2_completion () {
+        local cword line point words si
+        read -Ac words
+        read -cn cword
+        let cword-=1
+        read -l line
+        read -ln point
+        IFS=$'\n' reply=($(COMP_CWORD="$cword" \
+                          COMP_LINE="$line" \
+                          COMP_POINT="$point" \
+                          pm2 completion -- "${words[@]}" \
+                          2>/dev/null)) || return $?
+    }
+    compctl -K _pm2_completion + -f + pm2
 fi
 
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).

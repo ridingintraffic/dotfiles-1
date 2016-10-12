@@ -67,3 +67,6 @@
 [submodule ".vim/bundle/vim-windowswap"]
 	path = .vim/bundle/vim-windowswap
 	url = https://github.com/wesQ3/vim-windowswap.git
+[submodule ".vim/bundle/CamelCaseMotion"]
+	path = .vim/bundle/CamelCaseMotion
+	url = https://github.com/bkad/CamelCaseMotion.git
