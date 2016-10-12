@@ -23,6 +23,10 @@ export EDITOR='vim'
 # git
 source ~/.bash-git-prompt/gitprompt.sh
 
+# auto-complete
+bind "set show-all-if-ambiguous on"
+bind "set menu-complete-display-prefix on"
+
 # ALIASES
 
 # functions
@@ -51,8 +55,19 @@ function DockerPorts(){
    docker inspect --format='{{range $p, $conf := .NetworkSettings.Ports}} {{(index $conf 0).HostPort}} {{end}}' $(docker ps -q) 2> /dev/null
 }
 
+function RealPath(){
+    local given_path="$1"
+    local link_path="$(readlink "$given_path")"
+    if [ $? -eq 0 ] && [ -n "$link_path" ]; then
+        realpath "$link_path"
+    else
+        printf "%s" "$given_path"
+    fi
+}
+
 # utility
 alias pa=FindProcess
+alias rp=RealPath
 alias kp=KillProcess
 alias la=ListToLess
 alias ll=ListDetailToLess
@@ -192,8 +207,6 @@ export DEVPASSWORD=true
 
 export CRANKSHAFT=$HOME/Repos/crankshaft
 export PATH=$PATH:$CRANKSHAFT
-
-
 
 export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
 export CARS_DOT_COM_DIR="/Users/macheller-ogden/Repos/cars-dot-com" # cars-dot-com-repo-tool
