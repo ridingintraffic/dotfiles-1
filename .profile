@@ -59,7 +59,7 @@ function RealPath(){
     local given_path="$1"
     local link_path="$(readlink "$given_path")"
     if [ $? -eq 0 ] && [ -n "$link_path" ]; then
-        realpath "$link_path"
+        RealPath "$link_path"
     else
         printf "%s" "$given_path"
     fi
@@ -164,50 +164,13 @@ if [ -f ~/tmuxinator.bash ]; then
     . ~/.tmuxinator.bash
 fi
 
-# pm2 completion
-# Installation: pm2 completion >> ~/.profile
-
-COMP_WORDBREAKS=${COMP_WORDBREAKS/=/}
-COMP_WORDBREAKS=${COMP_WORDBREAKS/@/}
-export COMP_WORDBREAKS
-
-if type complete &>/dev/null; then
-    _pm2_completion () {
-        IFS=$'\n' COMPREPLY=($(COMP_CWORD="$COMP_CWORD" \
-                              COMP_LINE="$COMP_LINE" \
-                              COMP_POINT="$COMP_POINT" \
-                              pm2 completion -- "${COMP_WORDS[@]}" \
-                              2>/dev/null)) || return $?
-    }
-    complete -o default -F _pm2_completion pm2
-elif type compctl &>/dev/null; then
-    _pm2_completion () {
-        local cword line point words si
-        read -Ac words
-        read -cn cword
-        let cword-=1
-        read -l line
-        read -ln point
-        IFS=$'\n' reply=($(COMP_CWORD="$cword" \
-                          COMP_LINE="$line" \
-                          COMP_POINT="$point" \
-                          pm2 completion -- "${words[@]}" \
-                          2>/dev/null)) || return $?
-    }
-    compctl -K _pm2_completion + -f + pm2
-fi
 
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
 export GOPATH=$HOME/Repos/go
 export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
 
-export ROKU_DEV_TARGET=172.17.244.254
-export DEVPASSWORD=true
-
-export CRANKSHAFT=$HOME/Repos/crankshaft
-export PATH=$PATH:$CRANKSHAFT
-
 export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+
 export CARS_DOT_COM_DIR="/Users/macheller-ogden/Repos/cars-dot-com" # cars-dot-com-repo-tool
 source "$CARS_DOT_COM_DIR/scripts/profile" # cars-dot-com-repo-tool
