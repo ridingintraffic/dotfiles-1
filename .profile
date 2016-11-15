@@ -36,11 +36,11 @@ function FindProcess() {
 function KillProcess() {
    killall -9 "$@";
 }
-function ListToLess() {
-   ls -a "$@" | less;
+function ListAll() {
+   ls -al "$@";
 }
-function ListDetailToLess() {
-   ls -al "$@" | less;
+function UnlinkAll() {
+   ls -al ./node_modules | grep '>' | awk '{print $9}' | xargs npm unlink;
 }
 function ListRecursively() {
    ls -R "$@";
@@ -64,13 +64,15 @@ function RealPath(){
         printf "%s" "$given_path"
     fi
 }
+function ReadMarkdown() {
+    pandoc $1 | lynx -stdin
+}
 
 # utility
 alias pa=FindProcess
 alias rp=RealPath
 alias kp=KillProcess
-alias la=ListToLess
-alias ll=ListDetailToLess
+alias ll=ListAll
 alias lr=ListRecursively
 alias h=GrepHistory
 alias hl=GrepHistory
@@ -79,6 +81,8 @@ alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
 alias FUCK='fuck'
 alias dports=DockerPorts
 alias hc='cat /dev/null > ~/.bash_history && history -c && clear'
+alias ua=UnlinkAll
+alias rmd=ReadMarkdown
 
 # directories, branches, apps
 alias dotfiles='cd ~/.dotfiles'
@@ -174,3 +178,12 @@ export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
 
 export CARS_DOT_COM_DIR="/Users/macheller-ogden/Repos/cars-dot-com" # cars-dot-com-repo-tool
 source "$CARS_DOT_COM_DIR/scripts/profile" # cars-dot-com-repo-tool
+
+rw() {
+    tmux setw -q window-status-format "#I:${PWD##/*/}#F"
+    tmux setw -q window-status-current-format "#I:${PWD##/*/}#F"
+}
+bind '"\e[25~":"rw\n"'
+if [ -n "$TMUX" ]; then
+    rw
+fi
