@@ -61,7 +61,7 @@ function RealPath(){
     if [ $? -eq 0 ] && [ -n "$link_path" ]; then
         RealPath "$link_path"
     else
-        printf "%s" "$given_path"
+        printf "%s" "$given_path\n"
     fi
 }
 function ReadMarkdown() {
