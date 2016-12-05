@@ -321,8 +321,3 @@ au FileType javascript nmap <Leader>= ciwconst pa = require('phcrk$a');
 au BufRead,BufNewFile *bash* let g:is_bash=1
 au BufRead,BufNewFile *bash* let g:is_posix=1
 au BufRead,BufNewFile *bash* setf sh
-
-" camel case motion
-call camelcasemotion#CreateMotionMappings('<leader>')
-omap <silent> iw <Plug>CamelCaseMotion_ie
-xmap <silent> iw <Plug>CamelCaseMotion_ie

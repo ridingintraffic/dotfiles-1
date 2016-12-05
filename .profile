@@ -68,7 +68,12 @@ function ReadMarkdown() {
     pandoc $1 | lynx -stdin
 }
 
+function Scratch() {
+    vim `mktemp`
+}
+
 # utility
+alias scratch=Scratch
 alias pa=FindProcess
 alias rp=RealPath
 alias kp=KillProcess
