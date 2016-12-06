@@ -189,6 +189,13 @@ rw() {
     tmux setw -q window-status-current-format "#I:${PWD##/*/}#F"
 }
 bind '"\e[25~":"rw\n"'
-if [ -n "$TMUX" ]; then
+
+RENAME_WHEN_PROMPT() {
+  if [ "$PWD" != "$OLDPWD" ]; then
+    OLDPWD="$PWD";
     rw
-fi
+  fi
+  setLastCommandState;setGitPrompt
+}
+
+export PROMPT_COMMAND=RENAME_WHEN_PROMPT
