@@ -128,7 +128,6 @@ JCH() {
     export JAVA_HOME=`/usr/libexec/java_home -v $1`;
 }
 alias ddown='docker ps -q | xargs docker stop | xargs docker rm'
-alias mux='tmuxinator'
 alias jch=JCH
 
 # super cd
@@ -169,10 +168,6 @@ if [ -f ~/.git-completion.bash ]; then
    __git_complete gld _git_log
    __git_complete 'git freebase' _git_rebase
 fi
-if [ -f ~/tmuxinator.bash ]; then
-    . ~/.tmuxinator.bash
-fi
-
 
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
@@ -185,8 +180,10 @@ export CARS_DOT_COM_DIR="/Users/macheller-ogden/Repos/cars-dot-com" # cars-dot-c
 source "$CARS_DOT_COM_DIR/scripts/profile" # cars-dot-com-repo-tool
 
 rw() {
-    tmux setw -q window-status-format "#I:${PWD##/*/}#F"
-    tmux setw -q window-status-current-format "#I:${PWD##/*/}#F"
+    if [ -n "$TMUX" ]; then
+        tmux setw -q window-status-format "#I:${PWD##/*/}#F"
+        tmux setw -q window-status-current-format "#I:${PWD##/*/}#F"
+    fi
 }
 bind '"\e[25~":"rw\n"'
 
