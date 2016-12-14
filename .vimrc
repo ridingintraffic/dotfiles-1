@@ -257,10 +257,6 @@ nnoremap <silent> <c-l> :call TmuxMove('l')<cr>
 " work
 set directory+=,~/tmp,$TMP
 
-" yankring - http://www.vim.org/scripts/script.php?script_id=1234
-nnoremap <silent> <F4> :YRShow<CR>
-let g:yankring_zap_keys = 'f F t T / ?'
-
 " NERDtree - http://vim.sourceforge.net/scripts/script.php?script_id=1658
 nnoremap <silent> <Leader>a :execute ':silent! NERDTreeToggle'<cr>
 fun! InitNERDTree()
@@ -321,3 +317,9 @@ au FileType javascript nmap <Leader>= ciwconst pa = require('phcrk$a');
 au BufRead,BufNewFile *bash* let g:is_bash=1
 au BufRead,BufNewFile *bash* let g:is_posix=1
 au BufRead,BufNewFile *bash* setf sh
+
+" unite
+nnoremap <Leader>f :Unite file_rec/async<cr>
+nnoremap <Leader>/ :Unite grep:.<cr>
+nnoremap <Leader>y :Unite history/yank<cr>
+nnoremap <Leader>s :Unite -quick-match buffer<cr>
