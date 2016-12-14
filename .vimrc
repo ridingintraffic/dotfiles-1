@@ -318,8 +318,14 @@ au BufRead,BufNewFile *bash* let g:is_bash=1
 au BufRead,BufNewFile *bash* let g:is_posix=1
 au BufRead,BufNewFile *bash* setf sh
 
-" unite
-nnoremap <Leader>f :Unite file_rec/async<cr>
-nnoremap <Leader>/ :Unite grep:.<cr>
-nnoremap <Leader>y :Unite history/yank<cr>
-nnoremap <Leader>s :Unite -quick-match buffer<cr>
+" denite
+
+call denite#custom#alias('source', 'file_rec/git', 'file_rec')
+call denite#custom#var('file_rec/git', 'command',
+    \ ['git', 'ls-files', '-co', '--exclude-standard'])
+nnoremap <silent> <C-p> :<C-u>Denite
+    \ `finddir('.git', ';') != '' ? 'file_rec/git' : 'file_rec'`<CR>
+nnoremap <Leader>/ :Denite grep<cr>
+nnoremap <Leader>y :Denite neoyank<cr>
+nnoremap <Leader>b :Denite buffer<cr>
+

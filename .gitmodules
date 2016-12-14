@@ -70,9 +70,12 @@
 [submodule ".vim/bundle/vim-multiple-cursors"]
 	path = .vim/bundle/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors.git
-[submodule ".vim/bundle/unite.vim"]
-	path = .vim/bundle/unite.vim
-	url = https://github.com/Shougo/unite.vim.git
 [submodule ".vim/bundle/neoyank.vim"]
 	path = .vim/bundle/neoyank.vim
 	url = https://github.com/Shougo/neoyank.vim.git
+[submodule ".vim/bundle/vimproc.vim"]
+	path = .vim/bundle/vimproc.vim
+	url = https://github.com/Shougo/vimproc.vim.git
+[submodule ".vim/bundle/denite.nvim"]
+	path = .vim/bundle/denite.nvim
+	url = https://github.com/Shougo/denite.nvim.git
