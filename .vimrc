@@ -2,7 +2,9 @@
 set nocp
 
 " workaround for gvim screen redraw issues
-set ttyscroll=0
+if !has('nvim')
+    set ttyscroll=0
+endif
 
 " colors, yes
 set t_Co=256
@@ -25,6 +27,9 @@ call pathogen#infect()
 if &term =~ '^screen' && exists('$TMUX')
     set mouse+=a
     " tmux knows the extended mouse mode
+    if !has('nvim')
+        set ttymouse=xterm2
+    endif
     set ttymouse=xterm2
     " tmux will send xterm-style keys when xterm-keys is on
     execute "set <xUp>=\e[1;*A"
@@ -323,9 +328,32 @@ au BufRead,BufNewFile *bash* setf sh
 call denite#custom#alias('source', 'file_rec/git', 'file_rec')
 call denite#custom#var('file_rec/git', 'command',
     \ ['git', 'ls-files', '-co', '--exclude-standard'])
-nnoremap <silent> <C-p> :<C-u>Denite
+nnoremap <Leader>p :<C-u>Denite
     \ `finddir('.git', ';') != '' ? 'file_rec/git' : 'file_rec'`<CR>
-nnoremap <Leader>/ :Denite grep<cr>
-nnoremap <Leader>y :Denite neoyank<cr>
-nnoremap <Leader>b :Denite buffer<cr>
 
+
+function! SetDeniteGrep()
+    if finddir('.git', ';') != ''
+        call denite#custom#var('grep', 'command', ['git', '--no-pager', 'grep'])
+        call denite#custom#var('grep', 'recursive_opts', [])
+        call denite#custom#var('grep', 'final_opts', [])
+        call denite#custom#var('grep', 'separator', [])
+        call denite#custom#var('grep', 'default_opts', ['--no-color', '-nHI'])
+    else
+        call denite#custom#var('grep', 'command', ['rg'])
+        call denite#custom#var('grep', 'recursive_opts', [])
+        call denite#custom#var('grep', 'final_opts', [])
+        call denite#custom#var('grep', 'separator', ['--'])
+        call denite#custom#var('grep', 'default_opts',
+            \ ['--vimgrep', '--no-heading'])
+    endif
+endfunction
+
+nnoremap <Leader>/ :call SetDeniteGrep()<CR>:Denite grep<CR>
+nnoremap <Leader>y :Denite neoyank<CR>
+nnoremap <Leader>b :Denite buffer<CR>
+
+" edit this file
+command Vrc :tabe $MYVIMRC
+" edit temp file
+command Tmp :tabe `mktemp`

@@ -88,6 +88,7 @@ alias dports=DockerPorts
 alias hc='cat /dev/null > ~/.bash_history && history -c && clear'
 alias ua=UnlinkAll
 alias rmd=ReadMarkdown
+alias vrc='vim ~/.vimrc'
 
 # directories, branches, apps
 alias dotfiles='cd ~/.dotfiles'
