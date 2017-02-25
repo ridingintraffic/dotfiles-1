@@ -3,8 +3,8 @@
 # vars
 export JAVA_VERSION=1.7
 export JAVA_HOME=`/usr/libexec/java_home -v $JAVA_VERSION`
-export PATH="$HOME/bin:$HOME/.node/bin:/Users/macheller-ogden/Repos/cars-scripts:/Users/macheller-ogden/Tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-#export PATH="$HOME/bin:$HOME/.node/bin:$JAVA_HOME/bin/Users/macheller-ogden/Repos/cars-scripts:/Users/macheller-ogden/Tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$HOME/bin:$HOME/.node/bin:/Users/macheller-ogden/repos/cars-scripts:/Users/macheller-ogden/Tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+#export PATH="$HOME/bin:$HOME/.node/bin:$JAVA_HOME/bin/Users/macheller-ogden/repos/cars-scripts:/Users/macheller-ogden/Tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 #export CLASSPATH="$JAVA_HOME/lib/tools.jar"
 export HOST_DEV=cj8mcl121
 export HOST_FT=cj7mcl121
@@ -61,11 +61,19 @@ function RealPath(){
     if [ $? -eq 0 ] && [ -n "$link_path" ]; then
         RealPath "$link_path"
     else
-        printf "%s" "$given_path\n"
+        printf "%s" "$given_path"
+        echo
     fi
 }
 function ReadMarkdown() {
-    pandoc $1 | lynx -stdin
+    local file
+    if [ "$1" = "-t" ]; then
+        file="${2:-"README.md"}"
+        pandoc "$file" | lynx -stdin
+    else
+        file="${1:-"README.md"}"
+        open -a Marked\ 2.app "$file"
+    fi
 }
 
 function Scratch() {
@@ -92,16 +100,16 @@ alias vrc='vim ~/.vimrc'
 
 # directories, branches, apps
 alias dotfiles='cd ~/.dotfiles'
-alias repos='cd ~/Repos'
-alias www='cd ~/Repos/www'
-alias mdot='cd ~/Repos/mobile/profile_nav/mobiWebStatic/WebContent'
-alias master='cd ~/Repos/www;git stash -u;git checkout master'
-alias dq01='cd ~/Repos/www;git stash -u;git checkout qa-dq01'
-alias dq02='cd ~/Repos/www;git stash -u;git checkout qa-dq02'
-alias sandbox='cd ~/Repos/sandbox'
-alias runsandbox='cd ~/Repos/sandbox;./debug'
-alias userprofile='cd ~/Repos/user-profile'
-alias runuserprofile='cd ~/Repos/user-profile;./macProfile.sh'
+alias repos='cd ~/repos'
+alias www='cd ~/repos/www'
+alias mdot='cd ~/repos/mobile/profile_nav/mobiWebStatic/WebContent'
+alias master='cd ~/repos/www;git stash -u;git checkout master'
+alias dq01='cd ~/repos/www;git stash -u;git checkout qa-dq01'
+alias dq02='cd ~/repos/www;git stash -u;git checkout qa-dq02'
+alias sandbox='cd ~/repos/sandbox'
+alias runsandbox='cd ~/repos/sandbox;./debug'
+alias userprofile='cd ~/repos/user-profile'
+alias runuserprofile='cd ~/repos/user-profile;./macProfile.sh'
 
 # git aliases
 alias g='git'
@@ -172,13 +180,13 @@ fi
 
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
-export GOPATH=$HOME/Repos/go
+export GOPATH=$HOME/repos/go
 export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
 
 export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
 
-export CARS_DOT_COM_DIR="/Users/macheller-ogden/Repos/cars-dot-com" # cars-dot-com-repo-tool
-source "$CARS_DOT_COM_DIR/scripts/profile" # cars-dot-com-repo-tool
+#export CARS_DOT_COM_DIR="/Users/macheller-ogden/repos/cars-dot-com" # cars-dot-com-repo-tool
+#source "$CARS_DOT_COM_DIR/scripts/profile" # cars-dot-com-repo-tool
 
 rw() {
     if [ -n "$TMUX" ]; then
@@ -197,3 +205,5 @@ RENAME_WHEN_PROMPT() {
 }
 
 export PROMPT_COMMAND=RENAME_WHEN_PROMPT
+
+bind "TAB:menu-complete"

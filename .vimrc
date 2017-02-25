@@ -64,6 +64,7 @@ set softtabstop=4   " Indent by 4 spaces when pressing <TAB> - abbr sts
 set tabstop=4       " Indent by 4 spaces when pressing <TAB> - abbr ts
 set smartindent     " Automatically inserts indentation in some cases
 set smarttab        " A <Tab> in front of a line inserts blanks according to 'shiftwidth'.  'tabstop' or 'softtabstop' is used in other places.  A <BS> will delete a 'shiftwidth' worth of space at the start of the line.
+set nofoldenable
 
 " set word separators
 set iskeyword-=_
@@ -312,7 +313,7 @@ function! RunInTmux(cmd)
   :execute ":silent !tmux splitw -h '".a:cmd."; read; tmux select-pane -L'"
 endfunction
 au FileType markdown nnoremap <Leader>k :!open -a Marked\ 2.app '%:p'<CR>
-au FileType javascript nnoremap <Leader>r :call RunInTmux('node --debug --es_staging %')<CR>
+au FileType javascript nnoremap <Leader>r :call RunInTmux('node %')<CR>
 au FileType sh nnoremap <Leader>s :call RunInTmux('bash %')<CR>
 "nnoremap <Leader>! :call RunInTmux('chmod +x % && %')<CR>
 "nnoremap <Leader>m :call RunInTmux('make')<CR>
