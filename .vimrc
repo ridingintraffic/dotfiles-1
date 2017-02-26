@@ -30,6 +30,7 @@ Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-repeat'
 Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tomasr/molokai'
 Plugin 'larssmit/vim-getafe'
 Plugin 'chriskempson/vim-tomorrow-theme'
@@ -47,10 +48,6 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'Shougo/neoyank.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/denite.nvim'
-"Plugin 'google/vim-maktaba'
-"Plugin 'google/vim-coverage'
-"Plugin 'google/vim-glaive'
-"Plugin 'juanpabloaj/vim-istanbul'
 Plugin 'machellerogden/vim-istanbul'
 
 call vundle#end()
@@ -105,9 +102,6 @@ set nofoldenable
 
 " set word separators
 set iskeyword-=_
-
-" unix style line endings
-set ff=unix
 
 " set leader
 let mapleader="\<Space>"
@@ -390,6 +384,20 @@ endfunction
 nnoremap <Leader>/ :call SetDeniteGrep()<CR>:Denite grep<CR>
 nnoremap <Leader>y :Denite neoyank<CR>
 nnoremap <Leader>b :Denite buffer<CR>
+
+call denite#custom#map(
+      \ 'insert',
+      \ '<C-j>',
+      \ '<denite:move_to_next_line>',
+      \ 'noremap'
+      \)
+
+call denite#custom#map(
+      \ 'insert',
+      \ '<C-k>',
+      \ '<denite:move_to_previous_line>',
+      \ 'noremap'
+      \)
 
 " edit this file
 command Vrc :tabe $MYVIMRC
