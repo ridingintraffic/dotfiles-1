@@ -17,11 +17,48 @@ set noswapfile
 " backup to the name of the original file... it's annoying
 set nowritebackup
 
-" syntax-specific stuff, yes
-filetype plugin on
+" vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
 
-" pathogen - https://github.com/tpope/vim-pathogen
-call pathogen#infect()
+Plugin 'mattn/emmet-vim'
+Plugin 'sjl/gundo.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-repeat'
+Plugin 'scrooloose/syntastic'
+Plugin 'bling/vim-airline'
+Plugin 'tomasr/molokai'
+Plugin 'larssmit/vim-getafe'
+Plugin 'chriskempson/vim-tomorrow-theme'
+Plugin 'kristijanhusak/vim-hybrid-material'
+Plugin 'w0ng/vim-hybrid'
+Plugin 'changyuheng/color-scheme-holokai-for-vim'
+Plugin 'svjunic/RadicalGoodSpeed.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'fatih/vim-go'
+Plugin 'othree/yajs.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'wesQ3/vim-windowswap'
+Plugin 'bkad/CamelCaseMotion'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'Shougo/neoyank.vim'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Shougo/denite.nvim'
+"Plugin 'google/vim-maktaba'
+"Plugin 'google/vim-coverage'
+"Plugin 'google/vim-glaive'
+"Plugin 'juanpabloaj/vim-istanbul'
+Plugin 'machellerogden/vim-istanbul'
+
+call vundle#end()
+filetype plugin indent on
+
+" enable coverage default mappings
+"call glaive#Install()
+"Glaive coverage plugin[mappings]
 
 " pass correct key-codes in tmux
 if &term =~ '^screen' && exists('$TMUX')
