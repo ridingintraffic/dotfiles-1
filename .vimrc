@@ -403,3 +403,8 @@ call denite#custom#map(
 command Vrc :tabe $MYVIMRC
 " edit temp file
 command Tmp :tabe `mktemp`
+
+function! OpenTmuxSplit()
+  :execute ":silent !tmux splitw -p 20"
+endfunction
+nnoremap <Leader>l :call OpenTmuxSplit()<CR>

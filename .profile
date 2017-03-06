@@ -80,6 +80,13 @@ function Scratch() {
     vim `mktemp`
 }
 
+function MergeVerticalCoverage() {
+    if [ ! -d "$(pwd)/coverage" ]; then
+        mkdir "$(pwd)/coverage"
+    fi
+    jq -s '.[0] * .[1]' "$(pwd)/reports/coverage/server/coverage.json" "$(pwd)/reports/coverage/app/coverage-final.json" > "$(pwd)/coverage/coverage.json"
+}
+
 # utility
 alias scratch=Scratch
 alias pa=FindProcess
@@ -97,6 +104,8 @@ alias hc='cat /dev/null > ~/.bash_history && history -c && clear'
 alias ua=UnlinkAll
 alias rmd=ReadMarkdown
 alias vrc='vim ~/.vimrc'
+alias mergecoverage=MergeVerticalCoverage
+alias bim='bit -e'
 
 # directories, branches, apps
 alias dotfiles='cd ~/.dotfiles'
@@ -207,3 +216,4 @@ RENAME_WHEN_PROMPT() {
 export PROMPT_COMMAND=RENAME_WHEN_PROMPT
 
 bind "TAB:menu-complete"
+
