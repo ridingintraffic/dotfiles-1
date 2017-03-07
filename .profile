@@ -217,3 +217,5 @@ export PROMPT_COMMAND=RENAME_WHEN_PROMPT
 
 bind "TAB:menu-complete"
 
+# z - https://github.com/rupa/z
+. /usr/local/etc/profile.d/z.sh

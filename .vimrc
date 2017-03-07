@@ -407,4 +407,4 @@ command Tmp :tabe `mktemp`
 function! OpenTmuxSplit()
   :execute ":silent !tmux splitw -p 20"
 endfunction
-nnoremap <Leader>l :call OpenTmuxSplit()<CR>
+nnoremap <Leader>- :call OpenTmuxSplit()<CR>
