@@ -29,7 +29,7 @@ bind "set menu-complete-display-prefix on"
 bind "TAB:menu-complete"
 
 # common shell profile (bash/zsh)
-source "$HOME/.commmon_profile"
+source "$HOME/.common_profile"
 
 # super cd
 alias scd='cd'

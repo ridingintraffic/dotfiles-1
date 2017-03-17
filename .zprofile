@@ -2,7 +2,7 @@
 #source "$CARS_DOT_COM_DIR/scripts/profile" # cars-dot-com-repo-tool
 
 # common shell profile (bash/zsh)
-source "$HOME/.commmon_profile"
+source "$HOME/.common_profile"
 
 function ShToggle() {
     if [ -n "$ZSH_VERSION" ]; then
