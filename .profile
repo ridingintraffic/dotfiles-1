@@ -26,127 +26,10 @@ source ~/.bash-git-prompt/gitprompt.sh
 # auto-complete
 bind "set show-all-if-ambiguous on"
 bind "set menu-complete-display-prefix on"
+bind "TAB:menu-complete"
 
-# ALIASES
-
-# functions
-function FindProcess() {
-   ps -A -o 'pid,args' | grep "$@" | grep -v grep
-}
-function KillProcess() {
-   killall -9 "$@";
-}
-function ListAll() {
-   ls -al "$@";
-}
-function UnlinkAll() {
-   ls -al ./node_modules | grep '>' | awk '{print $9}' | xargs npm unlink;
-}
-function ListRecursively() {
-   ls -R "$@";
-}
-function GrepHistory() {
-   history | grep "$@";
-}
-function GrepHistoryToLess() {
-   history | grep "$@" | less;
-}
-function DockerPorts(){
-   docker inspect --format='{{range $p, $conf := .NetworkSettings.Ports}} {{(index $conf 0).HostPort}} {{end}}' $(docker ps -q) 2> /dev/null
-}
-
-function RealPath(){
-    local given_path="$1"
-    local link_path="$(readlink "$given_path")"
-    if [ $? -eq 0 ] && [ -n "$link_path" ]; then
-        RealPath "$link_path"
-    else
-        printf "%s" "$given_path"
-        echo
-    fi
-}
-function ReadMarkdown() {
-    local file
-    if [ "$1" = "-t" ]; then
-        file="${2:-"README.md"}"
-        pandoc "$file" | lynx -stdin
-    else
-        file="${1:-"README.md"}"
-        open -a Marked\ 2.app "$file"
-    fi
-}
-
-function Scratch() {
-    vim `mktemp`
-}
-
-function MergeVerticalCoverage() {
-    if [ ! -d "$(pwd)/coverage" ]; then
-        mkdir "$(pwd)/coverage"
-    fi
-    jq -s '.[0] * .[1]' "$(pwd)/reports/coverage/server/coverage.json" "$(pwd)/reports/coverage/app/coverage-final.json" > "$(pwd)/coverage/coverage.json"
-}
-
-# utility
-alias scratch=Scratch
-alias pa=FindProcess
-alias rp=RealPath
-alias kp=KillProcess
-alias ll=ListAll
-alias lr=ListRecursively
-alias h=GrepHistory
-alias hl=GrepHistory
-alias cl='clear'
-alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
-alias FUCK='fuck'
-alias dports=DockerPorts
-alias hc='cat /dev/null > ~/.bash_history && history -c && clear'
-alias ua=UnlinkAll
-alias rmd=ReadMarkdown
-alias vrc='vim ~/.vimrc'
-alias mergecoverage=MergeVerticalCoverage
-alias bim='bit -e'
-
-# directories, branches, apps
-alias dotfiles='cd ~/.dotfiles'
-alias repos='cd ~/repos'
-alias www='cd ~/repos/www'
-alias mdot='cd ~/repos/mobile/profile_nav/mobiWebStatic/WebContent'
-alias master='cd ~/repos/www;git stash -u;git checkout master'
-alias dq01='cd ~/repos/www;git stash -u;git checkout qa-dq01'
-alias dq02='cd ~/repos/www;git stash -u;git checkout qa-dq02'
-alias sandbox='cd ~/repos/sandbox'
-alias runsandbox='cd ~/repos/sandbox;./debug'
-alias userprofile='cd ~/repos/user-profile'
-alias runuserprofile='cd ~/repos/user-profile;./macProfile.sh'
-
-# git aliases
-alias g='git'
-alias gch='git checkout'
-alias gco='git commit'
-alias gadd='git add'
-alias grm='git rm'
-alias gmv='git mv'
-alias gbr='git branch'
-alias gmerge='git merge'
-alias grebase='git rebase'
-alias gri='git rebase --interactive'
-alias gpull='git pull'
-alias gpush='git push'
-alias gdiff='git diff'
-alias gst='git status -s'
-alias glg='git lg'
-alias glf='git lf'
-alias gld='git ld'
-alias groot='git rev-parse && cd "$(git rev-parse --show-cdup)"'
-
-
-# misc aliases
-JCH() {
-    export JAVA_HOME=`/usr/libexec/java_home -v $1`;
-}
-alias ddown='docker ps -q | xargs docker stop | xargs docker rm'
-alias jch=JCH
+# common shell profile (bash/zsh)
+source "$HOME/.commmon_profile"
 
 # super cd
 alias scd='cd'
@@ -160,10 +43,10 @@ eval "$(gh alias -s)"
 
 # bash completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
-   . $(brew --prefix)/etc/bash_completion
+   source "$(brew --prefix)/etc/bash_completion"
 fi
-if [ -f ~/.git-completion.bash ]; then
-   . ~/.git-completion.bash
+if [ -f "~/.git-completion.bash" ]; then
+   source "~/.git-completion.bash"
    # git completion for aliases
    __git_complete g _git
    __git_complete gch _git_checkout
@@ -215,7 +98,5 @@ RENAME_WHEN_PROMPT() {
 
 export PROMPT_COMMAND=RENAME_WHEN_PROMPT
 
-bind "TAB:menu-complete"
-
 # z - https://github.com/rupa/z
-. /usr/local/etc/profile.d/z.sh
+source /usr/local/etc/profile.d/z.sh
