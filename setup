@@ -24,4 +24,4 @@ do
     fi
 done
 
-ln -sf "$PWD/machellerogden.zsh-theme" "$HOME/.dotfiles/.oh-my-zsh/machellerogden.zsh-theme"
+ln -sf "$PWD/machellerogden.zsh-theme" "$PWD/.oh-my-zsh/themes/machellerogden.zsh-theme"
