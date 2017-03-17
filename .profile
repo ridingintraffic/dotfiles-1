@@ -27,6 +27,7 @@ eval "$(gh alias -s)"
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
    source "$(brew --prefix)/etc/bash_completion"
 fi
+
 if [ -f "~/.git-completion.bash" ]; then
    source "~/.git-completion.bash"
    # git completion for aliases
@@ -51,13 +52,6 @@ if [ -f "~/.git-completion.bash" ]; then
    __git_complete gld _git_log
    __git_complete 'git freebase' _git_rebase
 fi
-
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
-
-export GOPATH=$HOME/repos/go
-export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
-
-export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
 
 #export CARS_DOT_COM_DIR="/Users/macheller-ogden/repos/cars-dot-com" # cars-dot-com-repo-tool
 #source "$CARS_DOT_COM_DIR/scripts/profile" # cars-dot-com-repo-tool
