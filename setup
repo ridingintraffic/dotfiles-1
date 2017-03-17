@@ -14,12 +14,14 @@ REFS=(".common_profile" ".bashrc" ".profile" ".bash_profile" ".zshrc" ".zprofile
 # loop through refs, move to backup if exists, create symlink
 for i in "${REFS[@]}"
 do
-    if [ -f $HOME/$i ] || [ -d $HOME/$i ] && [ ! -h $HOME/$i ]; then
-        mv -f $HOME/$i $HOME/$i-bkup
+    if [ -f "$HOME/$i" ] || [ -d "$HOME/$i" ] && [ ! -h "$HOME/$i" ]; then
+        mv -f "$HOME/$i" "$HOME/$i-bkup"
     fi
-    if [ -d $HOME/$i ]; then
-        ln -sf $PWD/$i $HOME
+    if [ -d "$HOME/$i" ]; then
+        ln -sf "$PWD/$i" "$HOME"
     else
-        ln -sf $PWD/$i $HOME/$i
+        ln -sf "$PWD/$i" "$HOME/$i"
     fi
 done
+
+ln -sf "$PWD/machellerogden.zsh-theme" "$HOME/.dotfiles/.oh-my-zsh/machellerogden.zsh-theme"
