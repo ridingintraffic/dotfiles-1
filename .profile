@@ -1,24 +1,8 @@
-# ENVIRONMENT
-
-# vars
-export JAVA_VERSION=1.7
-export JAVA_HOME=`/usr/libexec/java_home -v $JAVA_VERSION`
-export PATH="$HOME/bin:$HOME/.node/bin:/Users/macheller-ogden/repos/cars-scripts:/Users/macheller-ogden/Tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-#export PATH="$HOME/bin:$HOME/.node/bin:$JAVA_HOME/bin/Users/macheller-ogden/repos/cars-scripts:/Users/macheller-ogden/Tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-#export CLASSPATH="$JAVA_HOME/lib/tools.jar"
-export HOST_DEV=cj8mcl121
-export HOST_FT=cj7mcl121
-export HOST_IT_MGMT=cj6mcl101
-export HOST_IT_DELIVERY_1=cj6mcl121
-export HOST_IT_DELIVERY_2=cj6mcl122
-export V8PROFILER=/Users/macheller-ogden/.node/lib/node_modules/v8-profiler
+# common shell profile (bash/zsh)
+source "$HOME/.common_profile"
 
 # display variable for JumpStart
 export DISPLAY=:0
-
-# vim
-set -o vi
-export EDITOR='vim'
 
 # git
 source ~/.bash-git-prompt/gitprompt.sh
@@ -28,8 +12,6 @@ bind "set show-all-if-ambiguous on"
 bind "set menu-complete-display-prefix on"
 bind "TAB:menu-complete"
 
-# common shell profile (bash/zsh)
-source "$HOME/.common_profile"
 
 # super cd
 alias scd='cd'
