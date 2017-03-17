@@ -2,6 +2,7 @@
 
 
 
+
 # begin bitcar
 export BITCAR_WORKSPACE_DIR="/Users/macheller-ogden/repos"
 export BITCAR_EDITOR_CMD="vim"
