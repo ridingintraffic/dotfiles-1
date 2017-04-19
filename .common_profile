@@ -113,6 +113,11 @@ function ShToggle() {
 }
 alias shtoggle=ShToggle
 
+function FindPort() {
+    lsof -n -i:$1
+}
+alias findport=FindPort
+
 alias cl='clear'
 alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
 alias FUCK='fuck'

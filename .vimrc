@@ -17,13 +17,15 @@ set noswapfile
 " backup to the name of the original file... it's annoying
 set nowritebackup
 
+" faster update time
+set updatetime=2000
+
 " vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'mattn/emmet-vim'
-Plugin 'sjl/gundo.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-abolish'
@@ -31,13 +33,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tomasr/molokai'
-Plugin 'larssmit/vim-getafe'
-Plugin 'chriskempson/vim-tomorrow-theme'
-Plugin 'kristijanhusak/vim-hybrid-material'
 Plugin 'w0ng/vim-hybrid'
-Plugin 'changyuheng/color-scheme-holokai-for-vim'
-Plugin 'svjunic/RadicalGoodSpeed.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'fatih/vim-go'
 Plugin 'othree/yajs.vim'
@@ -49,6 +45,8 @@ Plugin 'Shougo/neoyank.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/denite.nvim'
 Plugin 'machellerogden/vim-istanbul'
+Plugin 'jeetsukumaran/vim-markology'
+Plugin 'sjl/gundo.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -56,6 +54,11 @@ filetype plugin indent on
 " enable coverage default mappings
 "call glaive#Install()
 "Glaive coverage plugin[mappings]
+"
+" Load matchit.vim, but only if there is no newer version.
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+  runtime! macros/matchit.vim
+endif
 
 " pass correct key-codes in tmux
 if &term =~ '^screen' && exists('$TMUX')
@@ -155,6 +158,10 @@ set showmode
 
 " fix backspace (for windows)
 set backspace=indent,eol,start
+
+
+" When a file has been detected to have been changed outside of Vim and it has not been changed inside of Vim, automatically read it again.
+set autoread
 
 " remove trailing whitespace
 nnoremap <Leader>rtw :%s/\s\+$//e<CR>
@@ -312,6 +319,9 @@ endfun
 au vimenter * call InitNERDTree()
 
 " gundo - http://sjl.bitbucket.org/gundo.vim/
+if has('python3')
+    let g:gundo_prefer_python3 = 1          " anything else breaks on Ubuntu 16.04+
+endif
 nnoremap <silent> <F6> :GundoToggle<CR>
 
 " source closetag script
@@ -319,6 +329,9 @@ au Filetype html,xml,xsl,ejs,mustache source ~/.vim/scripts/closetag.vim
 
 " eslint
 let g:syntastic_javascript_checkers=['eslint']
+if executable('node_modules/.bin/eslint')
+    let b:syntastic_javascript_eslint_exec = getcwd()."/node_modules/.bin/eslint"
+endif
 let g:syntastic_sh_checkers=['shellcheck']
 let g:syntastic_html_checkers=[]
 let g:syntastic_always_populate_loc_list=1
@@ -338,6 +351,14 @@ set omnifunc=syntaxcomplete#Complete
 " popup menu inserts the longest common text of all matches
 " and the menu will come up even if there's only one match.
 set completeopt=longest,menuone
+set complete-=1
+
+" just because a number starts with a 0 doesn't mean it's octal
+set nrformats-=octal
+
+" timeout
+set ttimeout
+set ttimeoutlen=100
 
 " Custom IDE functionality using tmux
 function! RunInTmux(cmd)
@@ -401,10 +422,11 @@ call denite#custom#map(
 
 " edit this file
 command Vrc :tabe $MYVIMRC
+
 " edit temp file
 command Tmp :tabe `mktemp`
 
 function! OpenTmuxSplit()
-  :execute ":silent !tmux splitw -p 20"
+  :execute ":silent !tmux splitw -p 25"
 endfunction
 nnoremap <Leader>- :call OpenTmuxSplit()<CR>
