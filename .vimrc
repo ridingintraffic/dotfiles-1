@@ -18,7 +18,7 @@ set noswapfile
 set nowritebackup
 
 " faster update time
-set updatetime=2000
+set updatetime=1000
 
 " vundle
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -73,7 +73,7 @@ if &term =~ '^screen' && exists('$TMUX')
     execute "set <xDown>=\e[1;*B"
     execute "set <xRight>=\e[1;*C"
     execute "set <xLeft>=\e[1;*D"
-    execute "set <xHome>=\e[1;*H"      
+    execute "set <xHome>=\e[1;*H"
     execute "set <xEnd>=\e[1;*F"
     execute "set <Insert>=\e[2;*~"
     execute "set <Delete>=\e[3;*~"
@@ -430,3 +430,47 @@ function! OpenTmuxSplit()
   :execute ":silent !tmux splitw -p 25"
 endfunction
 nnoremap <Leader>- :call OpenTmuxSplit()<CR>
+
+" markology off by default, toggle with m!
+let g:markology_enable=0
+
+" word wrap
+noremap <silent> <Leader>w :call ToggleWrap()<CR>
+function ToggleWrap()
+  if &wrap
+    echo "Wrap OFF"
+    setlocal nowrap
+    set virtualedit=all
+    silent! nunmap <buffer> k
+    silent! nunmap <buffer> j
+    silent! nunmap <buffer> 0
+    silent! nunmap <buffer> $
+    silent! nunmap <buffer> <Up>
+    silent! nunmap <buffer> <Down>
+    silent! nunmap <buffer> <Home>
+    silent! nunmap <buffer> <End>
+    silent! iunmap <buffer> <Up>
+    silent! iunmap <buffer> <Down>
+    silent! iunmap <buffer> <Home>
+    silent! iunmap <buffer> <End>
+  else
+    echo "Wrap ON"
+    setlocal wrap linebreak nolist
+    set virtualedit=
+    setlocal display+=lastline
+    noremap  <buffer> <silent> k      gk
+    noremap  <buffer> <silent> j      gj
+    noremap  <buffer> <silent> 0      g0
+    noremap  <buffer> <silent> $      g$
+    onoremap <buffer> <silent> k      gk
+    onoremap <buffer> <silent> j      gj
+    noremap  <buffer> <silent> <Up>   gk
+    noremap  <buffer> <silent> <Down> gj
+    noremap  <buffer> <silent> <Home> g<Home>
+    noremap  <buffer> <silent> <End>  g<End>
+    inoremap <buffer> <silent> <Up>   <C-o>gk
+    inoremap <buffer> <silent> <Down> <C-o>gj
+    inoremap <buffer> <silent> <Home> <C-o>g<Home>
+    inoremap <buffer> <silent> <End>  <C-o>g<End>
+  endif
+endfunction

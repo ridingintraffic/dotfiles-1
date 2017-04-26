@@ -66,10 +66,7 @@ bind '"\e[25~":"rw\n"'
 
 RENAME_WHEN_PROMPT() {
   setLastCommandState;setGitPrompt
-  if [ "$PWD" != "$OLDPWD" ]; then
-    OLDPWD="$PWD";
-    rw
-  fi
+  rw
 }
 
 export PROMPT_COMMAND=RENAME_WHEN_PROMPT
