@@ -12,6 +12,11 @@ bind "set show-all-if-ambiguous on"
 bind "set menu-complete-display-prefix on"
 bind "TAB:menu-complete"
 
+# kill all history
+function KillHistory() {
+    cat /dev/null > ~/.bash_history && history -c && exit
+}
+alias killhistory=KillHistory
 
 # super cd
 alias scd='cd'

@@ -47,6 +47,16 @@ Plugin 'Shougo/denite.nvim'
 Plugin 'machellerogden/vim-istanbul'
 Plugin 'jeetsukumaran/vim-markology'
 Plugin 'sjl/gundo.vim'
+Plugin 'guns/vim-clojure-static'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-classpath'
+Plugin 'tpope/vim-salve'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-surround'
+" Plugin 'vim-scripts/paredit.vim'
+Plugin 'venantius/vim-eastwood'
+Plugin 'venantius/vim-cljfmt'
 
 call vundle#end()
 filetype plugin indent on
@@ -267,6 +277,7 @@ endfunction
 " use html syntax on ejs and mustache files
 au BufNewFile,BufRead *.ejs set filetype=html
 au BufNewFile,BufRead *.mustache set filetype=html
+au BufNewFile,BufRead *.hbs set filetype=html
 
 " json formatting
 au! BufRead,BufNewFile *.json set filetype=json
@@ -406,6 +417,9 @@ nnoremap <Leader>/ :call SetDeniteGrep()<CR>:Denite grep<CR>
 nnoremap <Leader>y :Denite neoyank<CR>
 nnoremap <Leader>b :Denite buffer<CR>
 
+" hot-load clojure repl
+au Filetype clojure nmap <Leader>r :Require<cr>
+
 call denite#custom#map(
       \ 'insert',
       \ '<C-j>',
@@ -428,6 +442,7 @@ command Tmp :tabe `mktemp`
 
 function! OpenTmuxSplit()
   :execute ":silent !tmux splitw -p 25"
+  :execute ":silent !tmux select-pane -U"
 endfunction
 nnoremap <Leader>- :call OpenTmuxSplit()<CR>
 
@@ -474,3 +489,4 @@ function ToggleWrap()
     inoremap <buffer> <silent> <End>  <C-o>g<End>
   endif
 endfunction
+
