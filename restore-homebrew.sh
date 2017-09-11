@@ -19,100 +19,15 @@ function install_cask_package() {
     $brew_cask_command install $1
     [ $? -ne 0 ] && $failed_items="$failed_items $1"  # package failed to install.
 }
-/usr/local/bin/brew tap ==> Auto-updated Homebrew!
-/usr/local/bin/brew tap Updated 2 taps (caskroom/cask, homebrew/core).
-/usr/local/bin/brew tap ==> Updated Formulae
-/usr/local/bin/brew tap acpica
-/usr/local/bin/brew tap allure
-/usr/local/bin/brew tap ansifilter
-/usr/local/bin/brew tap arx-libertatis
-/usr/local/bin/brew tap ascii
-/usr/local/bin/brew tap aspell
-/usr/local/bin/brew tap basex
-/usr/local/bin/brew tap bash-snippets
-/usr/local/bin/brew tap blastem
-/usr/local/bin/brew tap certstrap
-/usr/local/bin/brew tap cmark
-/usr/local/bin/brew tap collector-sidecar
-/usr/local/bin/brew tap dbhash
-/usr/local/bin/brew tap diff-pdf
-/usr/local/bin/brew tap diffoscope
-/usr/local/bin/brew tap django-completion
-/usr/local/bin/brew tap duck
-/usr/local/bin/brew tap elixir
-/usr/local/bin/brew tap emscripten
-/usr/local/bin/brew tap fizsh
-/usr/local/bin/brew tap fontforge
-/usr/local/bin/brew tap fonttools
-/usr/local/bin/brew tap fs-uae
-/usr/local/bin/brew tap fzf
-/usr/local/bin/brew tap geoserver
-/usr/local/bin/brew tap getdns
-/usr/local/bin/brew tap git
-/usr/local/bin/brew tap git-flow-avh
-/usr/local/bin/brew tap glew
-/usr/local/bin/brew tap gofabric8
-/usr/local/bin/brew tap gource
-/usr/local/bin/brew tap grafana
-/usr/local/bin/brew tap idris
-/usr/local/bin/brew tap immortal
-/usr/local/bin/brew tap jenkins
-/usr/local/bin/brew tap lean-cli
-/usr/local/bin/brew tap libpng
-/usr/local/bin/brew tap libvirt
-/usr/local/bin/brew tap logstalgia
-/usr/local/bin/brew tap makensis
-/usr/local/bin/brew tap mal4s
-/usr/local/bin/brew tap micro
-/usr/local/bin/brew tap minimal-racket
-/usr/local/bin/brew tap monetdb
-/usr/local/bin/brew tap mycli
-/usr/local/bin/brew tap nmap
-/usr/local/bin/brew tap nzbget
-/usr/local/bin/brew tap openclonk
-/usr/local/bin/brew tap opencsg
-/usr/local/bin/brew tap openmsx
-/usr/local/bin/brew tap openshift-cli
-/usr/local/bin/brew tap orientdb
-/usr/local/bin/brew tap passenger
-/usr/local/bin/brew tap pdf2htmlex
-/usr/local/bin/brew tap pdftoedn
-/usr/local/bin/brew tap pdftoipe
-/usr/local/bin/brew tap platformio
-/usr/local/bin/brew tap poppler
-/usr/local/bin/brew tap ppsspp
-/usr/local/bin/brew tap pre-commit
-/usr/local/bin/brew tap qemu
-/usr/local/bin/brew tap re2
-/usr/local/bin/brew tap redis@3.2
-/usr/local/bin/brew tap rlvm
-/usr/local/bin/brew tap rtags
-/usr/local/bin/brew tap saltstack
-/usr/local/bin/brew tap sane-backends
-/usr/local/bin/brew tap sbcl
-/usr/local/bin/brew tap sqldiff
-/usr/local/bin/brew tap sqlite
-/usr/local/bin/brew tap sqlite-analyzer
-/usr/local/bin/brew tap supertux
-/usr/local/bin/brew tap swiftlint
-/usr/local/bin/brew tap terraform
-/usr/local/bin/brew tap translate-toolkit
-/usr/local/bin/brew tap watchman
-/usr/local/bin/brew tap watson
-/usr/local/bin/brew tap widelands
-/usr/local/bin/brew tap wimlib
-/usr/local/bin/brew tap wine
-/usr/local/bin/brew tap ==> Renamed Formulae
-/usr/local/bin/brew tap transfig -> fig2dev
-/usr/local/bin/brew tap 
 /usr/local/bin/brew tap carsdotcom/tap
 /usr/local/bin/brew tap caskroom/cask
 /usr/local/bin/brew tap homebrew/core
 /usr/local/bin/brew tap homebrew/dupes
 /usr/local/bin/brew tap homebrew/python
 /usr/local/bin/brew tap homebrew/versions
-/usr/local/bin/brew tap jingweno/gh
 /usr/local/bin/brew tap neovim/neovim
+install_package ansible ''
+install_package ansible ''
 install_package apr ''
 install_package apr ''
 install_package apr-util ''
@@ -133,12 +48,12 @@ install_package bash-git-prompt ''
 install_package bash-git-prompt ''
 install_package bdw-gc ''
 install_package bdw-gc ''
+install_package boot-clj ''
+install_package boot-clj ''
 install_package c-ares ''
 install_package c-ares ''
 install_package cairo ''
 install_package cairo ''
-install_package casperjs ''
-install_package casperjs ''
 install_package chromedriver ''
 install_package chromedriver ''
 install_package cmake ''
@@ -167,8 +82,6 @@ install_package gdbm ''
 install_package gdbm ''
 install_package gettext ''
 install_package gettext ''
-install_package gh ''
-install_package gh ''
 install_package ghc ''
 install_package ghc ''
 install_package git ''
@@ -247,6 +160,8 @@ install_package little-cms ''
 install_package little-cms ''
 install_package little-cms2 ''
 install_package little-cms2 ''
+install_package llnode ''
+install_package llnode ''
 install_package lua ''
 install_package lua ''
 install_package lynx ''
@@ -283,10 +198,6 @@ install_package perl ''
 install_package perl ''
 install_package phantomjs ''
 install_package phantomjs ''
-install_package phantomjs198 ''
-install_package phantomjs198 ''
-install_package phantomjs@1.98 ''
-install_package phantomjs@1.98 ''
 install_package pixman ''
 install_package pixman ''
 install_package pkg-config ''
@@ -355,4 +266,6 @@ install_package xz ''
 install_package xz ''
 install_package z ''
 install_package z ''
+install_cask_package vagrant
+install_cask_package virtualbox
 [ ! -z $failed_items ] && echo The following items were failed to install: && echo $failed_items
