@@ -3,7 +3,7 @@
 # initialize and update submodules
 git submodule init
 git submodule update
-cd .vim/bundle/vimproc.vim/ && make && cd -
+# cd .vim/bundle/vimproc.vim/ && make && cd -
 
 # working directory
 PWD=$(pwd)
@@ -24,4 +24,4 @@ do
     fi
 done
 
-ln -sf "$PWD/machellerogden.zsh-theme" "$PWD/.oh-my-zsh/themes/machellerogden.zsh-theme"
+#ln -sf "$PWD/machellerogden.zsh-theme" "$PWD/.oh-my-zsh/themes/machellerogden.zsh-theme"

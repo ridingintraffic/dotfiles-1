@@ -26,7 +26,7 @@ _scd_completion() {
 complete -F _scd_completion scd
 
 # github cli
-eval "$(gh alias -s)"
+eval "$(hub alias -s)"
 
 # bash completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then

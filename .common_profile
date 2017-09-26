@@ -1,13 +1,6 @@
 export JAVA_VERSION=1.7
 export JAVA_HOME=`/usr/libexec/java_home -v $JAVA_VERSION`
 export PATH="$HOME/bin:$HOME/.node/bin:/Users/macheller-ogden/repos/cars-scripts:/Users/macheller-ogden/Tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-#export PATH="$HOME/bin:$HOME/.node/bin:$JAVA_HOME/bin/Users/macheller-ogden/repos/cars-scripts:/Users/macheller-ogden/Tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-#export CLASSPATH="$JAVA_HOME/lib/tools.jar"
-export HOST_DEV=cj8mcl121
-export HOST_FT=cj7mcl121
-export HOST_IT_MGMT=cj6mcl101
-export HOST_IT_DELIVERY_1=cj6mcl121
-export HOST_IT_DELIVERY_2=cj6mcl122
 export V8PROFILER=/Users/macheller-ogden/.node/lib/node_modules/v8-profiler
 export GOPATH=$HOME/repos/go
 export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
@@ -99,14 +92,6 @@ function Scratch() {
 }
 alias scratch=Scratch
 
-function MergeVerticalCoverage() {
-    if [ ! -d "$(pwd)/coverage" ]; then
-        mkdir "$(pwd)/coverage"
-    fi
-    jq -s '.[0] * .[1]' "$(pwd)/reports/coverage/server/coverage.json" "$(pwd)/reports/coverage/app/coverage-final.json" > "$(pwd)/coverage/coverage.json"
-}
-alias mergecoverage=MergeVerticalCoverage
-
 function ShToggle() {
     if [ -n "$ZSH_VERSION" ]; then
         exec bash -l
@@ -128,19 +113,6 @@ alias hc='cat /dev/null > ~/.bash_history && history -c && clear'
 alias vrc='vim ~/.vimrc'
 alias bim='bit -e'
 
-# directories, branches, apps
-alias dotfiles='cd ~/.dotfiles'
-alias repos='cd ~/repos'
-alias www='cd ~/repos/www'
-alias mdot='cd ~/repos/mobile/profile_nav/mobiWebStatic/WebContent'
-alias master='cd ~/repos/www;git stash -u;git checkout master'
-alias dq01='cd ~/repos/www;git stash -u;git checkout qa-dq01'
-alias dq02='cd ~/repos/www;git stash -u;git checkout qa-dq02'
-alias sandbox='cd ~/repos/sandbox'
-alias runsandbox='cd ~/repos/sandbox;./debug'
-alias userprofile='cd ~/repos/user-profile'
-alias runuserprofile='cd ~/repos/user-profile;./macProfile.sh'
-
 # git aliases
 alias g='git'
 alias gch='git checkout'
@@ -160,7 +132,6 @@ alias glg='git lg'
 alias glf='git lf'
 alias gld='git ld'
 alias groot='git rev-parse && cd "$(git rev-parse --show-cdup)"'
-
 
 # misc aliases
 JCH() {
