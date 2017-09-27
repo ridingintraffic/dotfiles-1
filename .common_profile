@@ -85,7 +85,7 @@ function ReadMarkdown() {
         pandoc "$file" | lynx -stdin
     else
         file="${1:-"README.md"}"
-        open -a Marked\ 2.app "$file"
+        open -a Typora.app "$file"
     fi
 }
 alias rmd=ReadMarkdown
@@ -109,6 +109,7 @@ function FindPort() {
 }
 alias findport=FindPort
 
+alias sandbox='cd ~/sandbox'
 alias cl='clear'
 alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
 alias FUCK='fuck'

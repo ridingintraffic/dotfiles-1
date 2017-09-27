@@ -254,6 +254,8 @@ if has("gui_running")
     set guifont=Source\ Code\ Pro\ for\ Powerline:h14
   elseif has("gui_win32")
     set guifont=Consolas:h13:cANSI
+  else
+    set guifont=Source\ Code\ Pro\ for\ Powerline:h14
   endif
 endif
 
@@ -375,7 +377,7 @@ set ttimeoutlen=100
 function! RunInTmux(cmd)
   :execute ":silent !tmux splitw -h '".a:cmd."; read; tmux select-pane -L'"
 endfunction
-au FileType markdown nnoremap <Leader>k :!open -a Marked\ 2.app '%:p'<CR>
+au FileType markdown nnoremap <Leader>k :!open -a Typora.app '%:p'<CR>
 au FileType javascript nnoremap <Leader>r :call RunInTmux('node %')<CR>
 au FileType sh nnoremap <Leader>s :call RunInTmux('bash %')<CR>
 "nnoremap <Leader>! :call RunInTmux('chmod +x % && %')<CR>
