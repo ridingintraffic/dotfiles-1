@@ -77,4 +77,4 @@ RENAME_WHEN_PROMPT() {
 export PROMPT_COMMAND=RENAME_WHEN_PROMPT
 
 # z - https://github.com/rupa/z
-source /usr/local/etc/profile.d/z.sh
+source $HOME/bin/z/z.sh

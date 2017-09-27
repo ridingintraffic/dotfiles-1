@@ -1,7 +1,7 @@
-export JAVA_VERSION=1.7
+export JAVA_VERSION=1.8
 export JAVA_HOME=`/usr/libexec/java_home -v $JAVA_VERSION`
-export PATH="$HOME/bin:$HOME/.node/bin:/Users/macheller-ogden/repos/cars-scripts:/Users/macheller-ogden/Tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-export V8PROFILER=/Users/macheller-ogden/.node/lib/node_modules/v8-profiler
+export PATH="$HOME/bin:$HOME/.node/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export V8PROFILER=$HOME/.node/lib/node_modules/v8-profiler
 export GOPATH=$HOME/repos/go
 export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
 export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
@@ -14,6 +14,9 @@ export EDITOR='vim'
 
 # once upon a time some script in my dotfiles, which i can no longer find, became dependent on "gh" ... which has since been deprecated. luckily, hub replaces it well enough... but the following alias is needed
 alias gh=hub
+
+# start or attach to tmux session
+alias t='tmux new-session -A -s main'
 
 function LinkMove() {
     local file="$1"
