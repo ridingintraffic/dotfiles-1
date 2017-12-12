@@ -4,7 +4,7 @@ export PATH="$HOME/bin:$HOME/.node/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/s
 export V8PROFILER=$HOME/.node/lib/node_modules/v8-profiler
 export GOPATH=$HOME/repos/go
 export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
-export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/repos/github.com/Guaranteed-Rate/kubeclj:$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 source $HOME/private_env
 

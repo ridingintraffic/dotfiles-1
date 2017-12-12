@@ -120,6 +120,7 @@
     editor = "vim -f"
     autocrlf = false
     fileMode = false
+	ignorecase = false
 #[rerere]
     #enabled = true
     #autoupdate = true

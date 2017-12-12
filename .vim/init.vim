@@ -1,1 +1,0 @@
-/Users/macheller-ogden/.vimrc

@@ -36,8 +36,6 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'w0ng/vim-hybrid'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'fatih/vim-go'
-Plugin 'othree/yajs.vim'
-" Plugin 'kern/vim-es7'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'wesQ3/vim-windowswap'
 Plugin 'bkad/CamelCaseMotion'
@@ -48,6 +46,8 @@ Plugin 'Shougo/denite.nvim'
 Plugin 'machellerogden/vim-istanbul'
 Plugin 'jeetsukumaran/vim-markology'
 Plugin 'sjl/gundo.vim'
+
+" clj
 Plugin 'guns/vim-clojure-static'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'tpope/vim-fireplace'
@@ -58,6 +58,16 @@ Plugin 'tpope/vim-surround'
 " Plugin 'vim-scripts/paredit.vim'
 Plugin 'venantius/vim-eastwood'
 Plugin 'venantius/vim-cljfmt'
+Plugin 'dgrnbrg/vim-redl'
+
+" js
+Plugin 'moll/vim-node'
+" Plugin 'pangloss/vim-javascript'
+Plugin 'othree/yajs.vim'
+Plugin 'othree/es.next.syntax.vim'
+Plugin 'ternjs/tern_for_vim'
+" Plugin 'kern/vim-es7'
+Plugin 'mxw/vim-jsx'
 
 call vundle#end()
 filetype plugin indent on
@@ -115,7 +125,7 @@ set smarttab        " A <Tab> in front of a line inserts blanks according to 'sh
 set nofoldenable
 
 " set word separators
-set iskeyword-=_
+" set iskeyword-=_
 
 " set leader
 let mapleader="\<Space>"
@@ -385,6 +395,9 @@ au FileType sh nnoremap <Leader>s :call RunInTmux('bash %')<CR>
 "nnoremap <Leader>m :call RunInTmux('make')<CR>
 command! -nargs=1 ND :execute ":silent !tmux splitw -h 'killall -9 node;node-vim-inspector " . string(<q-args>) . "';sleep 2;tmux splitw -v 'node debug localhost:5858';tmux select-pane -L" | :nbs
 au FileType javascript nmap <Leader>= ciwconst pa = require('phcrk$a');
+
+" use tern for def jump
+autocmd FileType javascript nnoremap <buffer> <C-]> :TernDef<CR>
 
 au BufRead,BufNewFile *bash* let g:is_bash=1
 au BufRead,BufNewFile *bash* let g:is_posix=1

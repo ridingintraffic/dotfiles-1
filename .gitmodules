@@ -19,12 +19,18 @@
 [submodule ".vim/bundle/vim-repeat"]
 	path = .vim/bundle/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
+[submodule ".vim/bundle/vim-classpath"]
+	path = .vim/bundle/vim-classpath
+	url = https://github.com/tpope/vim-classpath.git
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
 [submodule ".vim/bundle/vim-airline"]
 	path = .vim/bundle/vim-airline
 	url = https://github.com/bling/vim-airline.git
+[submodule ".vim/bundle/vim-airline-themes"]
+	path = .vim/bundle/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes.git
 [submodule ".vim/bundle/molokai"]
 	path = .vim/bundle/molokai
 	url = https://github.com/tomasr/molokai.git
@@ -88,3 +94,21 @@
 [submodule ".vim/bundle/rainbow_parentheses.vim"]
 	path = .vim/bundle/rainbow_parentheses.vim
 	url = https://github.com/kien/rainbow_parentheses.vim.git
+[submodule ".vim/bundle/vim-redl"]
+	path = .vim/bundle/vim-redl
+	url = https://github.com/dgrnbrg/vim-redl.git
+[submodule ".vim/bundle/vim-cljfmt"]
+	path = .vim/bundle/vim-cljfmt
+	url = https://github.com/venantius/vim-cljfmt.git
+[submodule ".vim/bundle/vim-eastwood"]
+	path = .vim/bundle/vim-eastwood
+	url = https://github.com/venantius/vim-eastwood.git
+[submodule ".vim/bundle/vim-clojure-static"]
+	path = .vim/bundle/vim-clojure-static
+	url = https://github.com/guns/vim-clojure-static.git
+[submodule ".vim/bundle/vim-dispatch"]
+	path = .vim/bundle/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch.git
+[submodule ".vim/bundle/vim-fireplace"]
+	path = .vim/bundle/vim-fireplace
+	url = https://github.com/tpope/vim-fireplace.git
