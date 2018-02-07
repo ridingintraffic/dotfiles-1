@@ -1,6 +1,6 @@
 export JAVA_VERSION=1.8
 export JAVA_HOME=`/usr/libexec/java_home -v $JAVA_VERSION`
-export PATH="$HOME/bin:$HOME/.node/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$HOME/bin:$HOME/.node/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/repos/github.com/machellerogden/tools"
 export V8PROFILER=$HOME/.node/lib/node_modules/v8-profiler
 export GOPATH=$HOME/repos/go
 export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
@@ -116,6 +116,7 @@ alias FUCK='fuck'
 alias hc='cat /dev/null > ~/.bash_history && history -c && clear'
 alias vrc='vim ~/.vimrc'
 alias bim='bit -e'
+alias uuid="uuidgen | tr -d '\n' | tr '[:upper:]' '[:lower:]' | pbcopy && pbpaste && echo"
 
 # git aliases
 alias g='git'
