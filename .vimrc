@@ -49,7 +49,6 @@ Plugin 'sjl/gundo.vim'
 
 " clj
 Plugin 'guns/vim-clojure-static'
-Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-classpath'
 Plugin 'tpope/vim-salve'
@@ -188,7 +187,7 @@ set autoread
 nnoremap <Leader>rtw :%s/\s\+$//e<CR>
 
 " replace tabs with spaces
-nnoremap <Leader>tts :%s/	/    /g<CR>
+nnoremap <Leader>tts :%s/  /    /g<CR>
 
 " tabs to spaces
 command! -range=% -nargs=0 Tab2Space execute '<line1>,<line2>s#^\t\+#\=repeat(" ", len(submatch(0))*' . &ts . ')'
@@ -303,6 +302,9 @@ augroup json_autocmd
     au FileType json set expandtab
     au FileType json set foldmethod=syntax
 augroup END
+
+autocmd FileType *bash* set expandtab
+autocmd FileType sh set expandtab
 
 function! TmuxMove(direction)
         let wnr = winnr()
