@@ -44,8 +44,8 @@ Plugin 'Shougo/neoyank.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/denite.nvim'
 Plugin 'machellerogden/vim-istanbul'
-Plugin 'jeetsukumaran/vim-markology'
 Plugin 'sjl/gundo.vim'
+Plugin 'MattesGroeger/vim-bookmarks'
 
 " clj
 Plugin 'guns/vim-clojure-static'
@@ -343,6 +343,18 @@ fun! InitNERDTree()
     :only
 endfun
 au vimenter * call InitNERDTree()
+let g:bookmark_no_default_key_mappings = 1
+nmap <Leader><Leader> <Plug>BookmarkToggle
+nmap <Leader>i <Plug>BookmarkAnnotate
+nmap <Leader>l <Plug>BookmarkShowAll
+nmap <Leader>j <Plug>BookmarkNext
+nmap <Leader>k <Plug>BookmarkPrev
+nmap <Leader>c <Plug>BookmarkClear
+nmap <Leader>x <Plug>BookmarkClearAll
+nmap <Leader>kk <Plug>BookmarkMoveUp
+nmap <Leader>jj <Plug>BookmarkMoveDown
+nmap <Leader>g <Plug>BookmarkMoveToLine
+
 
 " gundo - http://sjl.bitbucket.org/gundo.vim/
 if has('python3')
@@ -463,9 +475,6 @@ function! OpenTmuxSplit()
   :execute ":silent !tmux select-pane -U"
 endfunction
 nnoremap <Leader>- :call OpenTmuxSplit()<CR>
-
-" markology off by default, toggle with m!
-let g:markology_enable=0
 
 " word wrap
 noremap <silent> <Leader>w :call ToggleWrap()<CR>

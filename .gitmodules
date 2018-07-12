@@ -18,7 +18,7 @@
 	url = https://github.com/tpope/vim-abolish.git
 [submodule ".vim/bundle/vim-repeat"]
 	path = .vim/bundle/vim-repeat
-	url = https://github.com/tpope/vim-repeat.git
+	url = git@github.com:tpope/vim-repeat.git
 [submodule ".vim/bundle/vim-classpath"]
 	path = .vim/bundle/vim-classpath
 	url = https://github.com/tpope/vim-classpath.git
@@ -112,3 +112,27 @@
 [submodule ".vim/bundle/vim-fireplace"]
 	path = .vim/bundle/vim-fireplace
 	url = https://github.com/tpope/vim-fireplace.git
+[submodule ".vim/bundle/vim-bookmarks"]
+	path = .vim/bundle/vim-bookmarks
+	url = git@github.com:MattesGroeger/vim-bookmarks.git
+[submodule ".vim/bundle/es.next.syntax.vim"]
+	path = .vim/bundle/es.next.syntax.vim
+	url = git@github.com:othree/es.next.syntax.vim.git
+[submodule ".vim/bundle/tern_for_vim"]
+	path = .vim/bundle/tern_for_vim
+	url = git@github.com:ternjs/tern_for_vim.git
+[submodule ".vim/bundle/vim-istanbul"]
+	path = .vim/bundle/vim-istanbul
+	url = git@github.com:juanpabloaj/vim-istanbul.git
+[submodule ".vim/bundle/vim-jsx"]
+	path = .vim/bundle/vim-jsx
+	url = git@github.com:mxw/vim-jsx.git
+[submodule ".vim/bundle/vim-node"]
+	path = .vim/bundle/vim-node
+	url = git@github.com:moll/vim-node.git
+[submodule ".vim/bundle/vim-salve"]
+	path = .vim/bundle/vim-salve
+	url = git@github.com:tpope/vim-salve.git
+[submodule ".vim/bundle/vim-surround"]
+	path = .vim/bundle/vim-surround
+	url = git@github.com:tpope/vim-surround.git
