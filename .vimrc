@@ -58,6 +58,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'venantius/vim-eastwood'
 Plugin 'venantius/vim-cljfmt'
 Plugin 'dgrnbrg/vim-redl'
+Plugin 'bounceme/poppy.vim'
 
 " js
 Plugin 'moll/vim-node'
@@ -290,6 +291,9 @@ endfunction
 au BufNewFile,BufRead *.ejs set filetype=html
 au BufNewFile,BufRead *.mustache set filetype=html
 au BufNewFile,BufRead *.hbs set filetype=html
+
+" poppy rainbow parens
+au! cursormoved *.clj call PoppyInit()
 
 " json formatting
 au! BufRead,BufNewFile *.json set filetype=json

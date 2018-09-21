@@ -24,4 +24,7 @@ do
     fi
 done
 
+mkdir "$HOME/.lein"
+ln -sf "$PWD/profiles.clj" "$HOME/.lien/profiles.clj"
+
 #ln -sf "$PWD/machellerogden.zsh-theme" "$PWD/.oh-my-zsh/themes/machellerogden.zsh-theme"
