@@ -78,3 +78,5 @@ export PROMPT_COMMAND=RENAME_WHEN_PROMPT
 
 # z - https://github.com/rupa/z
 source $HOME/bin/z/z.sh
+
+export PATH="$HOME/.cargo/bin:$PATH"

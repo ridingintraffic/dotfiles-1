@@ -55,10 +55,13 @@ Plugin 'tpope/vim-salve'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-surround'
 " Plugin 'vim-scripts/paredit.vim'
+" Plugin 'bhurlow/vim-parinfer'
+Plugin 'eraserhd/parinfer-rust'
 Plugin 'venantius/vim-eastwood'
 Plugin 'venantius/vim-cljfmt'
 Plugin 'dgrnbrg/vim-redl'
 Plugin 'bounceme/poppy.vim'
+Plugin 'fbeline/kibit-vim'
 
 " js
 Plugin 'moll/vim-node'
@@ -521,3 +524,14 @@ function ToggleWrap()
   endif
 endfunction
 
+" parinfer toggle
+nnoremap <Leader>) :call ParinferToggle()<cr>
+function! ParinferToggle()
+    if g:parinfer_enabled == 1
+        let g:parinfer_enabled = 0
+        echom "Parinfer disabled"
+    else
+        let g:parinfer_enabled = 1
+        echom "Parinfer enabled"
+    endif
+endfunction

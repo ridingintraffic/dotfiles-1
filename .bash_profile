@@ -12,3 +12,5 @@ export BITCAR_EDITOR_CMD="vim"
 source $HOME/.bitcar/cli.sh
 source $HOME/.bitcar/completions.sh
 # end bitcar
+
+export PATH="$HOME/.cargo/bin:$PATH"
