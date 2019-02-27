@@ -14,3 +14,6 @@ source $HOME/.bitcar/completions.sh
 # end bitcar
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# opam configuration
+test -r /Users/mogden/.opam/opam-init/init.sh && . /Users/mogden/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true

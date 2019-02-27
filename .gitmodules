@@ -94,9 +94,6 @@
 [submodule ".vim/bundle/rainbow_parentheses.vim"]
 	path = .vim/bundle/rainbow_parentheses.vim
 	url = https://github.com/kien/rainbow_parentheses.vim.git
-[submodule ".vim/bundle/vim-redl"]
-	path = .vim/bundle/vim-redl
-	url = https://github.com/dgrnbrg/vim-redl.git
 [submodule ".vim/bundle/vim-cljfmt"]
 	path = .vim/bundle/vim-cljfmt
 	url = https://github.com/venantius/vim-cljfmt.git

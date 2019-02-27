@@ -59,9 +59,13 @@ Plugin 'tpope/vim-surround'
 Plugin 'eraserhd/parinfer-rust'
 Plugin 'venantius/vim-eastwood'
 Plugin 'venantius/vim-cljfmt'
-Plugin 'dgrnbrg/vim-redl'
-Plugin 'bounceme/poppy.vim'
+" Plugin 'dgrnbrg/vim-redl'
+" Plugin 'bounceme/poppy.vim'
 Plugin 'fbeline/kibit-vim'
+Plugin 'luochen1990/rainbow'
+let g:rainbow_active = 1
+
+" let g:clj_fmt_autosave = 0
 
 " js
 Plugin 'moll/vim-node'
@@ -296,7 +300,7 @@ au BufNewFile,BufRead *.mustache set filetype=html
 au BufNewFile,BufRead *.hbs set filetype=html
 
 " poppy rainbow parens
-au! cursormoved *.clj call PoppyInit()
+" au! cursormoved *.clj call PoppyInit()
 
 " json formatting
 au! BufRead,BufNewFile *.json set filetype=json
@@ -481,7 +485,7 @@ function! OpenTmuxSplit()
   :execute ":silent !tmux splitw -p 25"
   :execute ":silent !tmux select-pane -U"
 endfunction
-nnoremap <Leader>- :call OpenTmuxSplit()<CR>
+nnoremap <Leader>- :call OpenTmuxSplit()<CR>3<C-y>
 
 " word wrap
 noremap <silent> <Leader>w :call ToggleWrap()<CR>
