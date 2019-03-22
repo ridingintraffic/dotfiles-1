@@ -16,6 +16,9 @@ export EDITOR='vim'
 # once upon a time some script in my dotfiles, which i can no longer find, became dependent on "gh" ... which has since been deprecated. luckily, hub replaces it well enough... but the following alias is needed
 alias gh=hub
 
+# hide useless rg messages
+alias rg='rg --no-messages'
+
 # start or attach to tmux session
 alias t='tmux new-session -A -s main'
 
