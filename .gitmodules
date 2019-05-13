@@ -136,3 +136,6 @@
 [submodule ".vim/bundle/poppy.vim"]
 	path = .vim/bundle/poppy.vim
 	url = https://github.com/bounceme/poppy.vim.git
+[submodule ".vim/bundle/parinfer-rust"]
+	path = .vim/bundle/parinfer-rust
+	url = https://github.com/eraserhd/parinfer-rust.git

@@ -20,6 +20,11 @@ set nowritebackup
 " faster update time
 set updatetime=1000
 
+" cursor
+let &t_SI.="\e[5 q"
+let &t_SR.="\e[4 q"
+let &t_EI.="\e[1 q"
+
 " vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -66,6 +71,8 @@ Plugin 'luochen1990/rainbow'
 let g:rainbow_active = 1
 
 " let g:clj_fmt_autosave = 0
+Plugin 'dgrnbrg/vim-redl'
+Plugin 'eraserhd/parinfer-rust'
 
 " js
 Plugin 'moll/vim-node'
@@ -75,6 +82,10 @@ Plugin 'othree/es.next.syntax.vim'
 Plugin 'ternjs/tern_for_vim'
 " Plugin 'kern/vim-es7'
 Plugin 'mxw/vim-jsx'
+
+" ts
+Plugin 'leafgarland/typescript-vim'
+Plugin 'Quramy/tsuquyomi.git'
 
 call vundle#end()
 filetype plugin indent on
@@ -539,3 +550,5 @@ function! ParinferToggle()
         echom "Parinfer enabled"
     endif
 endfunction
+"au BufRead,BufNewFile *.md setlocal textwidth=80
+"au BufRead,BufNewFile *.md nmap <Leader>f gwap

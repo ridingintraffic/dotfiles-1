@@ -16,4 +16,9 @@ source $HOME/.bitcar/completions.sh
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # opam configuration
-test -r /Users/mogden/.opam/opam-init/init.sh && . /Users/mogden/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+test -r $HOME/.opam/opam-init/init.sh && . $HOME/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+export PATH="$HOME/repos/github.com/machellerogden/faraway:$PATH"
+export PATH="$HOME/repos/github.com/machellerogden/g4b:$PATH"

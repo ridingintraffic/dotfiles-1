@@ -149,3 +149,4 @@ JCH() {
 }
 alias ddown='docker ps -q | xargs docker stop | xargs docker rm'
 alias jch=JCH
+alias node="env NODE_NO_READLINE=1 rlwrap node"
