@@ -63,6 +63,7 @@ hi CursorLine                   ctermbg=0   guibg=#000000
 
 " Default Colors
 hi Normal           ctermfg=251 ctermbg=234 guibg=#111111 guifg=#f0f0f0
+hi Conceal          ctermfg=251 ctermbg=234 guibg=#111111 guifg=#f0f0f0
 hi NonText          ctermfg=233 ctermbg=233 guibg=#2c3032 guifg=#2c3032 gui=none cterm=none
 hi Cursor           ctermfg=11  ctermbg=251 guibg=#babdb6
 hi ICursor          ctermfg=247 ctermbg=251 guibg=#babdb6

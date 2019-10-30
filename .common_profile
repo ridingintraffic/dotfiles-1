@@ -20,7 +20,7 @@ alias gh=hub
 alias rg='rg --no-messages'
 
 # start or attach to tmux session
-alias t='tmux new-session -A -s main'
+alias m='tmux new-session -A -s main'
 
 function LinkMove() {
     local file="$1"

@@ -51,6 +51,9 @@ Plugin 'Shougo/denite.nvim'
 Plugin 'machellerogden/vim-istanbul'
 Plugin 'sjl/gundo.vim'
 Plugin 'MattesGroeger/vim-bookmarks'
+Plugin 'tpope/vim-dotenv'
+Plugin 'calebsmith/vim-lambdify'
+Plugin 'sheerun/vim-polyglot'
 
 " clj
 Plugin 'guns/vim-clojure-static'
@@ -72,7 +75,6 @@ let g:rainbow_active = 1
 
 " let g:clj_fmt_autosave = 0
 Plugin 'dgrnbrg/vim-redl'
-Plugin 'eraserhd/parinfer-rust'
 
 " js
 Plugin 'moll/vim-node'
@@ -310,6 +312,9 @@ au BufNewFile,BufRead *.ejs set filetype=html
 au BufNewFile,BufRead *.mustache set filetype=html
 au BufNewFile,BufRead *.hbs set filetype=html
 
+" ts syntax
+au BufNewFile,BufRead *.ts set filetype=typescript
+
 " poppy rainbow parens
 " au! cursormoved *.clj call PoppyInit()
 
@@ -470,7 +475,18 @@ nnoremap <Leader>y :Denite neoyank<CR>
 nnoremap <Leader>b :Denite buffer<CR>
 
 " hot-load clojure repl
+au Filetype clojure nmap <Leader>env :verbose Dotenv export-env<CR>
+au Filetype clojure nmap <Leader>repl :Console<CR>
+au Filetype clojure nmap <Leader>pig :Piggieback (figwheel-sidecar.repl-api/repl-env)<CR>
+au Filetype clojure nmap <Leader>fig :Eval (user/start)<CR>
+au Filetype clojure nmap <Leader>cljs :Eval (user/cljs)<CR>
+au Filetype clojure nmap <Leader>gif :Eval (user/stop)<CR>
+"au Filetype clojure nmap <Leader>aa :A<CR>
+"au Filetype clojure nmap <Leader>ee :%Eval<CR>
+"au Filetype clojure nmap <Leader>er :Eval<CR>
+"au Filetype clojure nmap <Leader>ss :ClojureHighlightReferences<CR>
 au Filetype clojure nmap <Leader>r :Require<cr>
+au Filetype clojure nmap <Leader>ra :Require!<CR>
 
 call denite#custom#map(
       \ 'insert',
@@ -491,6 +507,10 @@ command Vrc :tabe $MYVIMRC
 
 " edit temp file
 command Tmp :tabe `mktemp`
+
+" XML format
+command -range=% Xml :<line1>,<line2>!xmllint --format -
+
 
 function! OpenTmuxSplit()
   :execute ":silent !tmux splitw -p 25"
@@ -552,3 +572,4 @@ function! ParinferToggle()
 endfunction
 "au BufRead,BufNewFile *.md setlocal textwidth=80
 "au BufRead,BufNewFile *.md nmap <Leader>f gwap
+
