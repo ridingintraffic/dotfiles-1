@@ -8,6 +8,10 @@ export PATH="$HOME/repos/github.com/Guaranteed-Rate/kubeclj:$HOME/.rbenv/shims:$
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 [ -f "$HOME/private_env" ] && source $HOME/private_env
 export PATH="$HOME/bitbar:$PATH"
+export PATH=/Users/mogden/.nimble/bin:$PATH
+
+SHELL_NOTES_PATH=$HOME/repos/github.com/machellerogden/notes
+source $SHELL_NOTES_PATH/.aliases
 
 # vim
 set -o vi

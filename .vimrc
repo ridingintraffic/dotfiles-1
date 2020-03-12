@@ -54,6 +54,7 @@ Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'tpope/vim-dotenv'
 Plugin 'calebsmith/vim-lambdify'
 Plugin 'sheerun/vim-polyglot'
+Plugin 'aklt/plantuml-syntax'
 
 " clj
 Plugin 'guns/vim-clojure-static'
@@ -78,12 +79,12 @@ Plugin 'dgrnbrg/vim-redl'
 
 " js
 Plugin 'moll/vim-node'
-" Plugin 'pangloss/vim-javascript'
-Plugin 'othree/yajs.vim'
+Plugin 'pangloss/vim-javascript'
 Plugin 'othree/es.next.syntax.vim'
 Plugin 'ternjs/tern_for_vim'
 " Plugin 'kern/vim-es7'
 Plugin 'mxw/vim-jsx'
+Plugin 'evanleck/vim-svelte'
 
 " ts
 Plugin 'leafgarland/typescript-vim'
@@ -145,7 +146,8 @@ set smarttab        " A <Tab> in front of a line inserts blanks according to 'sh
 set nofoldenable
 
 " set word separators
-" set iskeyword-=_
+"set iskeyword=@,48-57,_,192-255
+set lisp
 
 " set leader
 let mapleader="\<Space>"
@@ -185,6 +187,10 @@ nmap <C-h> <C-w>h
 nmap <C-l> <C-w>l
 nmap <C-k> <C-w>k
 nmap <C-j> <C-w>j
+
+" better default split positions
+set splitbelow
+set splitright
 
 " copy paste from system clipboard
 set clipboard=unnamed
@@ -573,3 +579,4 @@ endfunction
 "au BufRead,BufNewFile *.md setlocal textwidth=80
 "au BufRead,BufNewFile *.md nmap <Leader>f gwap
 
+au BufRead,BufNewFile *svelte* setf svelte
