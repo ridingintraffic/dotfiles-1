@@ -11,6 +11,8 @@
     ch = checkout
     co = commit
     br = branch
+    # branch info
+    branch-ls = "!f() { git for-each-ref --sort='-committerdate:iso8601' --format='%(committerdate:relative)|%(refname:short)|%(committername)' refs/remotes/ | column -s '|' -t; }; f"
     # watch log
     watch = "!f() { while [ 1 ]; do clear; git log --all --oneline --decorate --graph; sleep 3; done; }; f"
     # pretty log with graph output
@@ -109,7 +111,7 @@
     freeset = "!f() { git fetch; git reset --hard `git remote show | head -1`/$1; }; f"
     # line count for given author
     authorlines = "!f() { git log --author=\"$1\" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf \"added lines: %s, removed lines: %s, total lines: %s\\n\", add, subs, loc }' -; }; f"
-	create-pull-request = !sh -c 'stash pull-request $0 $@'
+    create-pull-request = !sh -c 'stash pull-request $0 $@'
 [color]
     ui = auto
     status = always
@@ -120,7 +122,7 @@
     editor = "vim -f"
     autocrlf = false
     fileMode = false
-	ignorecase = false
+    ignorecase = false
 #[rerere]
     #enabled = true
     #autoupdate = true
